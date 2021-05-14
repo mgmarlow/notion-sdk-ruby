@@ -1,5 +1,7 @@
 # Notion Ruby SDK
 
+Unofficial Ruby client for the [Notion APIs](https://developers.notion.com/).
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -17,6 +19,8 @@ Or install it yourself as:
     $ gem install notion-sdk-ruby
 
 ## Usage
+
+Initialize `Notion::Client` with your app's [integration secret](https://developers.notion.com/docs/getting-started#create-a-new-integration).
 
 ```rb
 cilent = Notion::Client.new(token: ENV["NOTION_API_SECRET"])
