@@ -11,7 +11,7 @@ RSpec.describe Notion::Client do
 
   it "should add access_token to headers" do
     expect(client.class.headers).to eq({
-      "Authorization": "Bearer #{access_token}"
+      Authorization: "Bearer #{access_token}"
     })
   end
 
@@ -21,11 +21,11 @@ RSpec.describe Notion::Client do
     let(:get_user_fixture) { load_fixture("spec/fixtures/users/200_get_user") }
 
     before do
-      stub_request(:get, "https://api.notion.com/v1/users").
-        to_return(body: get_users_fixture)
+      stub_request(:get, "https://api.notion.com/v1/users")
+        .to_return(body: get_users_fixture)
 
-      stub_request(:get, "https://api.notion.com/v1/users/#{user_id}").
-        to_return(body: get_user_fixture)
+      stub_request(:get, "https://api.notion.com/v1/users/#{user_id}")
+        .to_return(body: get_user_fixture)
     end
 
     it "should get_users" do
