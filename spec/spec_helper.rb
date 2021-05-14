@@ -1,5 +1,10 @@
 require "bundler/setup"
+require "webmock/rspec"
 require "notion"
+
+def load_fixture(path)
+  File.read("#{path}.json")
+end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

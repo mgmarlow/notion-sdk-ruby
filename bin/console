@@ -1,14 +1,11 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "notion/sdk/ruby"
+require "pry"
+require 'dotenv/load'
 
-# You can add fixtures and/or initialization code here to make experimenting
-# with your gem easier. You can also use a different console, if you like.
+require "notion"
 
-# (If you use this, don't forget to add pry to your Gemfile!)
-# require "pry"
-# Pry.start
+$client = Notion::Client.new(token: ENV["API_SECRET"])
 
-require "irb"
-IRB.start(__FILE__)
+Pry.start
