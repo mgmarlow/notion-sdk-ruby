@@ -23,7 +23,11 @@ Or install it yourself as:
 Initialize `Notion::Client` with your app's [integration secret](https://developers.notion.com/docs/getting-started#create-a-new-integration).
 
 ```rb
-cilent = Notion::Client.new(token: ENV["NOTION_API_SECRET"])
+require "notion-sdk-ruby"
+client = Notion::Client.new(token: ENV["NOTION_API_SECRET"])
+
+# get users
+client.get_users
 ```
 
 ### Databases
