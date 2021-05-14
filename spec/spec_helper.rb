@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "notion/sdk/ruby"
+require "notion"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

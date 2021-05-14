@@ -1,8 +1,8 @@
-require_relative "lib/notion/sdk/ruby/version"
+require_relative "lib/notion/version"
 
 Gem::Specification.new do |spec|
   spec.name = "notion-sdk-ruby"
-  spec.version = Notion::Sdk::Ruby::VERSION
+  spec.version = Notion::VERSION
   spec.authors = ["Graham Marlow"]
   spec.email = ["mgmarlow@hey.com"]
 
