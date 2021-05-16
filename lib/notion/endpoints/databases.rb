@@ -10,7 +10,7 @@ module Notion
       end
 
       def query_database(id, body)
-        self.class.post("/v1/databases/#{id}/query", body: body)
+        self.class.post("/v1/databases/#{id}/query", body: body.to_json)
       end
     end
   end

@@ -6,7 +6,7 @@ module Notion
       end
 
       def append_block_children(id, body)
-        self.class.patch("/v1/blocks/#{id}/children", body: body)
+        self.class.patch("/v1/blocks/#{id}/children", body: body.to_json)
       end
     end
   end
