@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    notion-sdk-ruby (0.2.2)
+    notion-sdk-ruby (0.2.3)
       httparty (~> 0.18.1)
 
 GEM
