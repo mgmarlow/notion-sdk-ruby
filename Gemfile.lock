@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     notion-sdk-ruby (0.2.1)
+      httparty (~> 0.18.1)
 
 GEM
   remote: https://rubygems.org/
@@ -79,7 +80,6 @@ PLATFORMS
 
 DEPENDENCIES
   dotenv (~> 2.7)
-  httparty (~> 0.18.1)
   notion-sdk-ruby!
   pry (~> 0.14.1)
   rake (~> 12.0)
