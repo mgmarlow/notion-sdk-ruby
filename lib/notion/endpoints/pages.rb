@@ -6,11 +6,11 @@ module Notion
       end
 
       def create_page(body)
-        self.class.post("/v1/pages", body: body)
+        self.class.post("/v1/pages", body: body.to_json)
       end
 
       def update_page(id, body)
-        self.class.patch("/v1/pages/#{id}", body: body)
+        self.class.patch("/v1/pages/#{id}", body: body.to_json)
       end
     end
   end
