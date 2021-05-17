@@ -1,6 +1,6 @@
 require "bundler/setup"
 require "webmock/rspec"
-require "notion"
+require "notion-sdk-ruby"
 
 def load_fixture(path)
   File.read("#{path}.json")
