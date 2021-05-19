@@ -13,23 +13,36 @@ module Notion
     private
 
     def get(*args, &block)
-      self.class.get(*args, &block)
+      response = self.class.get(*args, &block)
+      raise_on_failure(response)
     end
 
     def post(*args, &block)
-      self.class.post(*args, &block)
+      response = self.class.post(*args, &block)
+      raise_on_failure(response)
     end
 
     def patch(*args, &block)
-      self.class.patch(*args, &block)
+      response = self.class.patch(*args, &block)
+      raise_on_failure(response)
     end
 
     def put(*args, &block)
-      self.class.put(*args, &block)
+      response = self.class.put(*args, &block)
+      raise_on_failure(response)
     end
 
     def delete(*args, &block)
-      self.class.delete(*args, &block)
+      response = self.class.delete(*args, &block)
+      raise_on_failure(response)
+    end
+
+    def raise_on_failure(response)
+      if response.success?
+        response
+      else
+        raise ErrorFactory.create(response)
+      end
     end
   end
 end

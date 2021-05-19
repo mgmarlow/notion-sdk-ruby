@@ -15,11 +15,36 @@ module Notion
     service_unavailable: "service_unavailable"
   }
 
-  class Error < StandardError; end
+  class ErrorFactory
+    def self.create(error = nil)
+      return NotionError.new("Unknown error.") if error.nil?
 
-  class RequestTimeoutError < Error; end
+      if API_ERROR_CODE.value?(error["code"])
+        APIResponseError.new(error["message"], body: error)
+      elsif error["request"] && error["response"] && error["timings"]
+        HTTPResponseError.new(error["message"], body: error)
+      elsif error["request"] && error["timings"]
+        RequestTimeoutError.new(error["message"], body: error)
+      end
+    end
+  end
 
-  class HTTPResponseError < Error; end
+  class NotionError < StandardError
+    attr_reader :message, :body
 
-  class APIResponseError < Error; end
+    def initialize(message = nil, body: nil)
+      @message = message
+      @body = body
+    end
+  end
+
+  class RequestTimeoutError < NotionError; end
+
+  class HTTPResponseError < NotionError; end
+
+  class APIResponseError < NotionError
+    def code
+      body["code"]
+    end
+  end
 end
