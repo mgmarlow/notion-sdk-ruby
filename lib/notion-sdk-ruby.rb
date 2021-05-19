@@ -6,8 +6,8 @@ require "notion-sdk-ruby/endpoints/pages"
 require "notion-sdk-ruby/endpoints/search"
 require "notion-sdk-ruby/endpoints/users"
 require "notion-sdk-ruby/endpoints"
+require "notion-sdk-ruby/error"
 require "notion-sdk-ruby/client"
 
 module Notion
-  class Error < StandardError; end
 end
