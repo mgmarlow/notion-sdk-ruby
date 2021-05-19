@@ -17,7 +17,7 @@ module Notion
 
   class ErrorFactory
     def self.create(error = nil)
-      return NotionError.new("Unknown error.") if error.nil?
+      return NotionError.new("Unknown error.") if error.nil? || error["message"].nil?
 
       if API_ERROR_CODE.value?(error["code"])
         APIResponseError.new(error["message"], body: error)
@@ -25,6 +25,8 @@ module Notion
         HTTPResponseError.new(error["message"], body: error)
       elsif error["request"] && error["timings"]
         RequestTimeoutError.new(error["message"], body: error)
+      else
+        NotionError.new(error["message"])
       end
     end
   end
