@@ -4,7 +4,7 @@ require "bundler/setup"
 require "pry"
 require 'dotenv/load'
 
-require "notion"
+require "notion-sdk-ruby"
 
 $client = Notion::Client.new(token: ENV["API_SECRET"])
 
