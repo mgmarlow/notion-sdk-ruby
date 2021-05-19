@@ -3,7 +3,7 @@ require "webmock/rspec"
 require "notion-sdk-ruby"
 
 def load_fixture(path)
-  File.read("#{path}.json")
+  File.read("spec/support/fixtures/#{path}.json")
 end
 
 RSpec.configure do |config|
