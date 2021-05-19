@@ -5,9 +5,9 @@ module Notion
 
     base_uri "https://api.notion.com"
     headers "Content-Type": "application/json"
-    
+
     def initialize(token:)
-      self.class.headers({ Authorization: "Bearer #{token}" })
+      self.class.headers({Authorization: "Bearer #{token}"})
     end
 
     private
