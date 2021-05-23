@@ -5,6 +5,30 @@
 
 Unofficial Ruby client for the [Notion APIs](https://developers.notion.com/).
 
+- [Notion Ruby SDK](#notion-ruby-sdk)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [API reference](#api-reference)
+    - [Databases](#databases)
+      - [databases#retrieve](#databasesretrieve)
+      - [databases#list](#databaseslist)
+      - [databases#query](#databasesquery)
+    - [Pages](#pages)
+      - [pages#retrieve](#pagesretrieve)
+      - [pages#create](#pagescreate)
+      - [pages#update](#pagesupdate)
+    - [Blocks](#blocks)
+      - [blocks#children#list](#blockschildrenlist)
+      - [blocks#children#append](#blockschildrenappend)
+    - [Users](#users)
+      - [users#retrieve](#usersretrieve)
+      - [users#list](#userslist)
+    - [Search](#search)
+      - [#search](#search-1)
+  - [Development](#development)
+  - [Contributing](#contributing)
+  - [License](#license)
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -219,6 +243,14 @@ client.search({
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+
+Before using `bin/console` you need to create a new file, `.env`, at the root project directory. This will enable you to run commands directly against your [Notion integration](https://developers.notion.com/docs/getting-started).
+
+```
+cat > .env <<EOF
+API_SECRET=<YOUR NOTION API SECRET HERE>
+EOF
+```
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
