@@ -1,5 +1,5 @@
 module Notion
-  module Endpoints
+  module Resources
     include Databases
     include Pages
     include Blocks

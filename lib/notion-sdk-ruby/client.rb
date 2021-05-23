@@ -1,7 +1,7 @@
 module Notion
   class Client
     include HTTParty
-    include Endpoints
+    include Resources
 
     base_uri "https://api.notion.com"
     headers "Content-Type": "application/json"
