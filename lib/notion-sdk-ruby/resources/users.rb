@@ -1,11 +1,11 @@
 module Notion
-  module Users
-    def get_users
-      get("/v1/users")
+  class Users
+    def list
+      RequestClient.active_client.get("/v1/users")
     end
 
-    def get_user(id)
-      get("/v1/users/#{id}")
+    def retrieve(id)
+      RequestClient.active_client.get("/v1/users/#{id}")
     end
   end
 end

@@ -14,10 +14,6 @@ And then execute:
 
     $ bundle install
 
-Or install it yourself as:
-
-    $ gem install notion-sdk-ruby
-
 ## Usage
 
 Initialize `Notion::Client` with your app's [integration secret](https://developers.notion.com/docs/getting-started#create-a-new-integration).
@@ -25,29 +21,34 @@ Initialize `Notion::Client` with your app's [integration secret](https://develop
 ```rb
 require "notion-sdk-ruby"
 client = Notion::Client.new(token: ENV["NOTION_API_SECRET"])
-
-# get users
-client.get_users
 ```
+
+## API reference
 
 ### Databases
 
-#### #get_database
+#### databases#retrieve
+
+[API reference](https://developers.notion.com/reference/get-database)
 
 ```rb
-client.get_database("668d797c-76fa-4934-9b05-ad288df2d136")
+client.databases.retrieve("668d797c-76fa-4934-9b05-ad288df2d136")
 ```
 
-#### #get_databases
+#### databases#list
+
+[API reference](https://developers.notion.com/reference/get-databases)
 
 ```rb
-client.get_databases
+client.databases.list
 ```
 
-#### #query_database
+#### databases#query
+
+[API reference](https://developers.notion.com/reference/post-database-query)
 
 ```rb
-client.query_database("668d797c-76fa-4934-9b05-ad288df2d136", {
+client.databases.query("668d797c-76fa-4934-9b05-ad288df2d136", {
   "filter": {
     "or": [
       {
@@ -75,16 +76,20 @@ client.query_database("668d797c-76fa-4934-9b05-ad288df2d136", {
 
 ### Pages
 
-#### #get_page
+#### pages#retrieve
+
+[API reference](https://developers.notion.com/reference/get-page)
 
 ```rb
-client.get_page("b55c9c91-384d-452b-81db-d1ef79372b75")
+client.pages.retrieve("b55c9c91-384d-452b-81db-d1ef79372b75")
 ```
 
-#### #create_page
+#### pages#create
+
+[API reference](https://developers.notion.com/reference/post-page)
 
 ```rb
-client.create_page({
+client.pages.create({
   "parent": { "database_id": "48f8fee9cd794180bc2fec0398253067" },
   "properties": {
     "Name": {
@@ -116,10 +121,12 @@ client.create_page({
 })
 ```
 
-#### #update_page
+#### pages#update
+
+[API reference](https://developers.notion.com/reference/patch-page)
 
 ```rb
-client.update_page("b55c9c91-384d-452b-81db-d1ef79372b75", {
+client.pages.update("b55c9c91-384d-452b-81db-d1ef79372b75", {
   "properties": {
     "In stock": { "checkbox": true }
   }
@@ -128,18 +135,22 @@ client.update_page("b55c9c91-384d-452b-81db-d1ef79372b75", {
 
 ### Blocks
 
-#### #get_block_children
+#### blocks#children#list
+
+[API reference](https://developers.notion.com/reference/get-block-children)
 
 ```rb
-client.get_block_children("b55c9c91-384d-452b-81db-d1ef79372b75", {
+client.blocks.children.list("b55c9c91-384d-452b-81db-d1ef79372b75", {
   page_size: 100
 })
 ```
 
-#### #append_block_children
+#### blocks#children#append
+
+[API reference](https://developers.notion.com/reference/patch-block-children)
 
 ```rb
-client.append_block_children("b54c9c91-384d-452b-81db-d1ef79372b75", {
+client.blocks.children.append("b54c9c91-384d-452b-81db-d1ef79372b75", {
   "children": [
     {
       "object": "block",
@@ -169,19 +180,25 @@ client.append_block_children("b54c9c91-384d-452b-81db-d1ef79372b75", {
 
 ### Users
 
-#### #get_user
+#### users#retrieve
+
+[API reference](https://developers.notion.com/reference/get-user)
 
 ```rb
-client.get_user("d40e767c-d7af-4b18-a86d-55c61f1e39a4")
+client.users.retrieve("d40e767c-d7af-4b18-a86d-55c61f1e39a4")
 ```
 
-#### #get_users
+#### users#list
+
+[API reference](https://developers.notion.com/reference/get-users)
 
 ```rb
-client.get_users
+client.users.list
 ```
 
 ### Search
+
+[API reference](https://developers.notion.com/reference/post-search)
 
 #### #search
 

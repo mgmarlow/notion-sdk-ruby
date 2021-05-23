@@ -14,20 +14,20 @@ RSpec.describe "blocks" do
       .to_return(body: append_block_children_fixture)
   end
 
-  describe "#get_block_children" do
+  describe "blocks#children#list" do
     it "should call GET api.notion /blocks/{id}/children" do
-      client.get_block_children(block_id)
+      client.blocks.children.list(block_id)
 
       expect(a_request(:get, "https://api.notion.com/v1/blocks/#{block_id}/children"))
         .to have_been_made.once
     end
 
     it "should match fixture response" do
-      expect(client.get_block_children(block_id).parsed_response).to eq(get_block_children_fixture)
+      expect(client.blocks.children.list(block_id).parsed_response).to eq(get_block_children_fixture)
     end
   end
 
-  describe "#append_block_children" do
+  describe "blocks#children#append" do
     let(:child) do
       {
         object: "block",
@@ -48,7 +48,7 @@ RSpec.describe "blocks" do
     let(:body) { {children: [child]} }
 
     it "should call PATCH api.notion /blocks/{id}/children" do
-      client.append_block_children(block_id, body)
+      client.blocks.children.append(block_id, body)
 
       expect(a_request(:patch, "https://api.notion.com/v1/blocks/#{block_id}/children")
         .with(body: body, headers: {'Content-Type': "application/json", Authorization: "Bearer #{access_token}"}))
@@ -56,7 +56,7 @@ RSpec.describe "blocks" do
     end
 
     it "should match fixture response" do
-      expect(client.append_block_children(block_id, body).parsed_response).to eq(append_block_children_fixture)
+      expect(client.blocks.children.append(block_id, body).parsed_response).to eq(append_block_children_fixture)
     end
   end
 end

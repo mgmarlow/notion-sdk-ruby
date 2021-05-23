@@ -18,33 +18,33 @@ RSpec.describe "databases" do
       .to_return(body: query_database_fixture)
   end
 
-  describe "#get_database" do
+  describe "databases#retrieve" do
     it "should call GET api.notion /databases" do
-      client.get_database(database_id)
+      client.databases.retrieve(database_id)
 
       expect(a_request(:get, "https://api.notion.com/v1/databases/#{database_id}"))
         .to have_been_made.once
     end
 
     it "should match fixture response" do
-      expect(client.get_database(database_id).parsed_response).to eq(get_database_fixture)
+      expect(client.databases.retrieve(database_id).parsed_response).to eq(get_database_fixture)
     end
   end
 
-  describe "#get_databases" do
+  describe "databases#list" do
     it "should call GET api.notion /databases" do
-      client.get_databases
+      client.databases.list
 
       expect(a_request(:get, "https://api.notion.com/v1/databases"))
         .to have_been_made.once
     end
 
     it "should match fixture response" do
-      expect(client.get_databases.parsed_response).to eq(get_databases_fixture)
+      expect(client.databases.list.parsed_response).to eq(get_databases_fixture)
     end
   end
 
-  describe "#query_database" do
+  describe "databases#query" do
     let(:body) do
       {
         filter: {
@@ -73,7 +73,7 @@ RSpec.describe "databases" do
     end
 
     it "should call POST api.notion /databases/{id}/query" do
-      client.query_database(database_id, body)
+      client.databases.query(database_id, body)
 
       expect(a_request(:post, "https://api.notion.com/v1/databases/#{database_id}/query")
         .with(body: body))
@@ -81,7 +81,7 @@ RSpec.describe "databases" do
     end
 
     it "should match fixture response" do
-      expect(client.query_database(database_id, body).parsed_response).to eq(query_database_fixture)
+      expect(client.databases.query(database_id, body).parsed_response).to eq(query_database_fixture)
     end
   end
 end

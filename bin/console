@@ -7,5 +7,6 @@ require 'dotenv/load'
 require "notion-sdk-ruby"
 
 $client = Notion::Client.new(token: ENV["API_SECRET"])
+$client2 = Notion::Client.new(token: ENV["API_SECRET"])
 
 Pry.start
