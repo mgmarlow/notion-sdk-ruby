@@ -1,5 +1,8 @@
 # Notion Ruby SDK
 
+[![ci](https://github.com/mgmarlow/notion-sdk-ruby/actions/workflows/ci.yml/badge.svg)](https://github.com/mgmarlow/notion-sdk-ruby/actions/workflows/ci.yml)
+[![Gem Version](https://badge.fury.io/rb/notion-sdk-ruby.svg)](https://badge.fury.io/rb/notion-sdk-ruby)
+
 Unofficial Ruby client for the [Notion APIs](https://developers.notion.com/).
 
 ## Installation
