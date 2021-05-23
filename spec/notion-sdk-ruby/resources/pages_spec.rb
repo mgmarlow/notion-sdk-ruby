@@ -18,20 +18,20 @@ RSpec.describe "pages" do
       .to_return(body: update_page_fixture)
   end
 
-  describe "#get_page" do
+  describe "pages#retrieve" do
     it "should call GET api.notion /pages/{id}" do
-      client.get_page(page_id)
+      client.pages.retrieve(page_id)
 
       expect(a_request(:get, "https://api.notion.com/v1/pages/#{page_id}"))
         .to have_been_made.once
     end
 
     it "should match fixture response" do
-      expect(client.get_page(page_id).parsed_response).to eq(get_page_fixture)
+      expect(client.pages.retrieve(page_id).parsed_response).to eq(get_page_fixture)
     end
   end
 
-  describe "#create_page" do
+  describe "pages#create" do
     let(:body) do
       {
         parent: {
@@ -42,7 +42,7 @@ RSpec.describe "pages" do
     end
 
     it "should call POST api.notion /pages/" do
-      client.create_page(body)
+      client.pages.create(body)
 
       expect(a_request(:post, "https://api.notion.com/v1/pages")
         .with(body: body))
@@ -50,11 +50,11 @@ RSpec.describe "pages" do
     end
 
     it "should match fixture response" do
-      expect(client.create_page(body).parsed_response).to eq(create_page_fixture)
+      expect(client.pages.create(body).parsed_response).to eq(create_page_fixture)
     end
   end
 
-  describe "#update_page" do
+  describe "pages#update" do
     let(:body) do
       {
         properties: {
@@ -64,7 +64,7 @@ RSpec.describe "pages" do
     end
 
     it "should call PATCH api.notion /pages/{id}" do
-      client.update_page(page_id, body)
+      client.pages.update(page_id, body)
 
       expect(a_request(:patch, "https://api.notion.com/v1/pages/#{page_id}")
         .with(body: body))
@@ -72,7 +72,7 @@ RSpec.describe "pages" do
     end
 
     it "should match fixture response" do
-      expect(client.update_page(page_id, body).parsed_response).to eq(update_page_fixture)
+      expect(client.pages.update(page_id, body).parsed_response).to eq(update_page_fixture)
     end
   end
 end
