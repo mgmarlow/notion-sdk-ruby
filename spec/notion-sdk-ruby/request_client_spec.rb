@@ -15,7 +15,8 @@ RSpec.describe Notion::RequestClient do
   it "should add headers" do
     expect(client.class.headers).to eq({
       Authorization: "Bearer #{access_token}",
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "Notion-Version": "2021-05-13"
     })
   end
 
