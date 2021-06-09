@@ -1,8 +1,10 @@
 RSpec.describe Notion::RequestClient do
   let(:access_token) { "foo-1234" }
+  let(:notion_version) { "2021-05-13" }
   let(:config) do
     OpenStruct.new({
-      api_token: access_token
+      api_token: access_token,
+      notion_version: notion_version
     })
   end
 
@@ -16,7 +18,7 @@ RSpec.describe Notion::RequestClient do
     expect(client.class.headers).to eq({
       Authorization: "Bearer #{access_token}",
       "Content-Type": "application/json",
-      "Notion-Version": "2021-05-13"
+      "Notion-Version": notion_version
     })
   end
 

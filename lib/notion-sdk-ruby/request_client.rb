@@ -4,7 +4,6 @@ module Notion
 
     base_uri "https://api.notion.com"
     headers "Content-Type": "application/json"
-    headers "Notion-Version": "2021-05-13"
 
     def self.active_client
       RequestClient.new(Notion.config)
@@ -12,6 +11,7 @@ module Notion
 
     def initialize(config)
       self.class.headers Authorization: "Bearer #{config.api_token}"
+      self.class.headers "Notion-Version": config.notion_version
     end
 
     def get(*args, &block)

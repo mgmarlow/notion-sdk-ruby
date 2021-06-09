@@ -22,5 +22,6 @@ module Notion
     attr_reader :config
 
     def_delegators :@config, :api_token, :api_token=
+    def_delegators :@config, :notion_version, :notion_version=
   end
 end
