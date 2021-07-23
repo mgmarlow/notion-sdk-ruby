@@ -13,6 +13,7 @@ Unofficial Ruby client for the [Notion APIs](https://developers.notion.com/).
       - [databases#retrieve](#databasesretrieve)
       - [databases#list](#databaseslist)
       - [databases#query](#databasesquery)
+      - [databases#create](#databasescreate)
     - [Pages](#pages)
       - [pages#retrieve](#pagesretrieve)
       - [pages#create](#pagescreate)
@@ -98,6 +99,33 @@ client.databases.query("668d797c-76fa-4934-9b05-ad288df2d136", {
       "direction": "ascending"
     }
   ]
+})
+```
+
+#### databases#create
+
+[API reference](https://developers.notion.com/reference/create-a-database)
+
+```rb
+client.databases.create({
+  "parent": {
+    "type": "page_id",
+    "page_id": "98ad959b-2b6a-4774-80ee-00246fb0ea9b"
+  },
+  "title": [
+    {
+        "type": "text",
+        "text": {
+            "content": "Grocery List",
+            "link": null
+        }
+    }
+  ],
+  "properties": {
+    "Name": {
+      "title": {}
+    }
+  }
 })
 ```
 
