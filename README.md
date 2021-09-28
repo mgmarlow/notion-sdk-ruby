@@ -19,6 +19,7 @@ Unofficial Ruby client for the [Notion APIs](https://developers.notion.com/).
       - [pages#create](#pagescreate)
       - [pages#update](#pagesupdate)
     - [Blocks](#blocks)
+      - [blocks#retrieve](#blocksretrieve)
       - [blocks#update](#blocksupdate)
       - [blocks#children#list](#blockschildrenlist)
       - [blocks#children#append](#blockschildrenappend)
@@ -190,6 +191,14 @@ client.pages.update("b55c9c91-384d-452b-81db-d1ef79372b75", {
 ```
 
 ### Blocks
+
+#### blocks#retrieve
+
+[API reference](https://developers.notion.com/reference/retrieve-a-block)
+
+```rb
+client.blocks.retrieve("b55c9c91-384d-452b-81db-d1ef79372b75")
+```
 
 #### blocks#update
 

@@ -6,8 +6,12 @@ RSpec.describe "blocks" do
   let(:get_block_children_fixture) { load_fixture("blocks/200_get_block_children") }
   let(:append_block_children_fixture) { load_fixture("blocks/200_append_block_children") }
   let(:update_block_fixture) { load_fixture("blocks/200_update_block") }
+  let(:get_block_fixture) { load_fixture("blocks/200_retrieve_block") }
 
   before do
+    stub_request(:get, "https://api.notion.com/v1/blocks/#{block_id}")
+      .to_return(body: get_block_fixture)
+
     stub_request(:patch, "https://api.notion.com/v1/blocks/#{block_id}")
       .to_return(body: update_block_fixture)
 
@@ -16,6 +20,19 @@ RSpec.describe "blocks" do
 
     stub_request(:patch, "https://api.notion.com/v1/blocks/#{block_id}/children")
       .to_return(body: append_block_children_fixture)
+  end
+
+  describe "blocks#retrieve" do
+    it "should call GET api.notion /blocks/{id}" do
+      client.blocks.retrieve(block_id)
+
+      expect(a_request(:get, "https://api.notion.com/v1/blocks/#{block_id}"))
+        .to have_been_made.once
+    end
+
+    it "should match fixture response" do
+      expect(client.blocks.retrieve(block_id).parsed_response).to eq(get_block_fixture)
+    end
   end
 
   describe "blocks#update" do
