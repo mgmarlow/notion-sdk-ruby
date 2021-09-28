@@ -2,7 +2,7 @@ module Notion
   class Client
     include Operations::Search
 
-    def initialize(token:, notion_version: "2021-05-13")
+    def initialize(token:, notion_version: "2021-08-16")
       Notion.api_token = token
       Notion.notion_version = notion_version
     end
