@@ -80,26 +80,26 @@ client.databases.list
 
 ```rb
 client.databases.query("668d797c-76fa-4934-9b05-ad288df2d136", {
-  "filter": {
-    "or": [
+  filter: {
+    or: [
       {
-        "property": "In stock",
-        "checkbox": {
-          "equals": true
+        property: "In stock",
+        checkbox: {
+          equals: true
         }
       },
       {
-        "property": "Cost of next trip",
-        "number": {
-          "greater_than_or_equal_to": 2
+        property: "Cost of next trip",
+        number: {
+          greater_than_or_equal_to: 2
         }
       }
     ]
   },
-  "sorts": [
+  sorts: [
     {
-      "property": "Last ordered",
-      "direction": "ascending"
+      property: "Last ordered",
+      direction: "ascending"
     }
   ]
 })
@@ -111,22 +111,22 @@ client.databases.query("668d797c-76fa-4934-9b05-ad288df2d136", {
 
 ```rb
 client.databases.create({
-  "parent": {
-    "type": "page_id",
-    "page_id": "98ad959b-2b6a-4774-80ee-00246fb0ea9b"
+  parent: {
+    type: "page_id",
+    page_id: "98ad959b-2b6a-4774-80ee-00246fb0ea9b"
   },
-  "title": [
+  title: [
     {
-        "type": "text",
-        "text": {
-            "content": "Grocery List",
-            "link": null
+        type: "text",
+        text: {
+            content: "Grocery List",
+            link: null
         }
     }
   ],
-  "properties": {
-    "Name": {
-      "title": {}
+  properties: {
+    Name: {
+      title: {}
     }
   }
 })
@@ -138,18 +138,18 @@ client.databases.create({
 
 ```rb
 client.databases.update("668d797c-76fa-4934-9b05-ad288df2d136", {
-  "title": [
+  title: [
     {
-        "type": "text",
-        "text": {
-            "content": "Grocery List",
-            "link": null
+        type: "text",
+        text: {
+            content: "Grocery List",
+            link: null
         }
     }
   ],
-  "properties": {
-    "Name": {
-      "title": {}
+  properties: {
+    Name: {
+      title: {}
     }
   }
 })
@@ -171,34 +171,34 @@ client.pages.retrieve("b55c9c91-384d-452b-81db-d1ef79372b75")
 
 ```rb
 client.pages.create({
-  "parent": { "database_id": "48f8fee9cd794180bc2fec0398253067" },
-  "properties": {
-    "Name": {
-      "title": [
+  parent: { database_id: "48f8fee9cd794180bc2fec0398253067" },
+  properties: {
+    Name: {
+      title: [
         {
-          "text": {
-            "content": "Tuscan Kale"
+          text: {
+            content: "Tuscan Kale"
           }
         }
       ]
     },
-    "Description": {
-      "rich_text": [
+    Description: {
+      rich_text: [
         {
-          "text": {
-            "content": "A dark green leafy vegetable"
+          text: {
+            content: "A dark green leafy vegetable"
           }
         }
       ]
     },
-    "Food group": {
-      "select": {
-        "name": "Vegetable"
+    Food group: {
+      select: {
+        name: "Vegetable"
       }
     },
-    "Price": { "number": 2.5 }
+    Price: { number: 2.5 }
   },
-  "children": []
+  children: []
 })
 ```
 
@@ -208,8 +208,8 @@ client.pages.create({
 
 ```rb
 client.pages.update("b55c9c91-384d-452b-81db-d1ef79372b75", {
-  "properties": {
-    "In stock": { "checkbox": true }
+  properties: {
+    "In stock": { checkbox: true }
   }
 })
 ```
@@ -255,24 +255,24 @@ client.blocks.children.list("b55c9c91-384d-452b-81db-d1ef79372b75", {
 
 ```rb
 client.blocks.children.append("b54c9c91-384d-452b-81db-d1ef79372b75", {
-  "children": [
+  children: [
     {
-      "object": "block",
-      "type": "heading_1",
-      "heading_1": {
-        "text": [{ "type": "text", "text": { "content": "Lacinato kale" } }]
+      object: "block",
+      type: "heading_1",
+      heading_1: {
+        text: [{ type: "text", text: { content: "Lacinato kale" } }]
       }
     },
     {
-      "object": "block",
-      "type": "paragraph",
-      "paragraph": {
-        "text": [
+      object: "block",
+      type: "paragraph",
+      paragraph: {
+        text: [
           {
-            "type": "text",
-            "text": {
-              "content": "Lacinato kale is a variety of kale with a long tradition in Italian cuisine, especially that of Tuscany. It is also known as Tuscan kale, Italian kale, dinosaur kale, kale, flat back kale, palm tree kale, or black Tuscan palm.",
-              "link": { "url": "https://en.wikipedia.org/wiki/Lacinato_kale" }
+            type: "text",
+            text: {
+              content: "Lacinato kale is a variety of kale with a long tradition in Italian cuisine, especially that of Tuscany. It is also known as Tuscan kale, Italian kale, dinosaur kale, kale, flat back kale, palm tree kale, or black Tuscan palm.",
+              link: { url: "https://en.wikipedia.org/wiki/Lacinato_kale" }
             }
           }
         ]
@@ -308,13 +308,12 @@ client.users.list
 
 ```rb
 client.search({
-  "query":"External tasks",
-  "sort":{
-    "direction":"ascending",
-    "timestamp":"last_edited_time"
-    }
+  query: "External tasks",
+  sort: {
+    direction: "ascending",
+    timestamp: "last_edited_time"
   }
-)
+})
 ```
 
 ## Development
