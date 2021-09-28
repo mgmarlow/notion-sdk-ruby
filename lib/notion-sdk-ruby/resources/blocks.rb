@@ -3,6 +3,10 @@ module Notion
     def children
       Children.new
     end
+
+    def update(block_id, body)
+      RequestClient.active_client.patch("/v1/blocks/#{block_id}", body: body.to_json)
+    end
   end
 
   class Children

@@ -19,6 +19,7 @@ Unofficial Ruby client for the [Notion APIs](https://developers.notion.com/).
       - [pages#create](#pagescreate)
       - [pages#update](#pagesupdate)
     - [Blocks](#blocks)
+      - [blocks#update](#blocksupdate)
       - [blocks#children#list](#blockschildrenlist)
       - [blocks#children#append](#blockschildrenappend)
     - [Users](#users)
@@ -189,6 +190,21 @@ client.pages.update("b55c9c91-384d-452b-81db-d1ef79372b75", {
 ```
 
 ### Blocks
+
+#### blocks#update
+
+[API reference](https://developers.notion.com/reference/update-a-block)
+
+```rb
+client.blocks.update("b55c9c91-384d-452b-81db-d1ef79372b75", {
+  to_do: {
+    text: [{ 
+      text: { content: "Lacinato kale" } 
+    }],
+    checked: false
+  }
+})
+```
 
 #### blocks#children#list
 
