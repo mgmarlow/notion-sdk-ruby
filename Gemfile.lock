@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    notion-sdk-ruby (0.4.0)
+    notion-sdk-ruby (0.4.1)
       httparty (~> 0.18.1)
 
 GEM
@@ -22,7 +22,7 @@ GEM
     method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2021.0704)
+    mime-types-data (3.2021.0901)
     multi_xml (0.6.0)
     parallel (1.20.1)
     parser (3.0.1.1)
