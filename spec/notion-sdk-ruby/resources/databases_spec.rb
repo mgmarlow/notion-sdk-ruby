@@ -7,6 +7,7 @@ RSpec.describe "databases" do
   let(:get_databases_fixture) { load_fixture("databases/200_get_databases") }
   let(:query_database_fixture) { load_fixture("databases/200_query_database") }
   let(:create_database_fixture) { load_fixture("databases/200_create_database") }
+  let(:update_database_fixture) { load_fixture("databases/200_update_database") }
 
   before do
     stub_request(:get, "https://api.notion.com/v1/databases/#{database_id}")
@@ -20,6 +21,9 @@ RSpec.describe "databases" do
 
     stub_request(:post, "https://api.notion.com/v1/databases")
       .to_return(body: create_database_fixture)
+
+    stub_request(:patch, "https://api.notion.com/v1/databases/#{database_id}")
+      .to_return(body: update_database_fixture)
   end
 
   describe "databases#retrieve" do
@@ -123,6 +127,39 @@ RSpec.describe "databases" do
 
     it "should match fixture response" do
       expect(client.databases.create(body).parsed_response).to eq(create_database_fixture)
+    end
+  end
+
+  describe "databases#update" do
+    let(:body) do
+      {
+        title: [
+          {
+            type: "text",
+            text: {
+              content: "Grocery List",
+              link: nil
+            }
+          }
+        ],
+        properties: {
+          Name: {
+            title: {}
+          }
+        }
+      }
+    end
+
+    it "should call POST api.notion /databases" do
+      client.databases.update(database_id, body)
+
+      expect(a_request(:patch, "https://api.notion.com/v1/databases/#{database_id}")
+        .with(body: body))
+        .to have_been_made.once
+    end
+
+    it "should match fixture response" do
+      expect(client.databases.update(database_id, body).parsed_response).to eq(update_database_fixture)
     end
   end
 end
