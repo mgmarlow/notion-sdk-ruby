@@ -1,4 +1,4 @@
-require "httparty"
+require "faraday"
 require "forwardable"
 
 require "notion-sdk-ruby/version"
