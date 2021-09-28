@@ -4,7 +4,9 @@ module Notion
       RequestClient.active_client.get("/v1/databases/#{id}")
     end
 
+    # DEPRECATED
     def list
+      warn "DEPRECATED: client.databases.list is deprecated."
       RequestClient.active_client.get("/v1/databases")
     end
 
