@@ -1,9 +1,16 @@
 require "bundler/setup"
+require "active_support/core_ext/hash/indifferent_access"
 require "webmock/rspec"
 require "notion-sdk-ruby"
 
 def load_fixture(path)
   File.read("spec/support/fixtures/#{path}.json")
+end
+
+RSpec::Matchers.define :be_like_fixture do |expected|
+  match do |actual|
+    actual.to_h.with_indifferent_access == JSON.parse(expected)
+  end
 end
 
 RSpec.configure do |config|
