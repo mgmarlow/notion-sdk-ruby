@@ -1,6 +1,7 @@
 require "faraday"
 require "faraday_middleware"
 require "forwardable"
+require "ostruct"
 
 require "notion-sdk-ruby/version"
 require "notion-sdk-ruby/config"
@@ -12,6 +13,11 @@ require "notion-sdk-ruby/resources/users"
 require "notion-sdk-ruby/operations/search"
 require "notion-sdk-ruby/error"
 require "notion-sdk-ruby/client"
+require "notion-sdk-ruby/models/user"
+require "notion-sdk-ruby/models/list"
+require "notion-sdk-ruby/models/block"
+require "notion-sdk-ruby/models/database"
+require "notion-sdk-ruby/models/page"
 
 module Notion
   @config = Config.new
