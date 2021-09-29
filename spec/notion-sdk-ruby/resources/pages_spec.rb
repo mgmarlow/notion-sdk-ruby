@@ -27,7 +27,7 @@ RSpec.describe "pages" do
     end
 
     it "should match fixture response" do
-      expect(client.pages.retrieve(page_id).parsed_response).to eq(get_page_fixture)
+      expect(client.pages.retrieve(page_id).body).to eq(get_page_fixture)
     end
   end
 
@@ -50,7 +50,7 @@ RSpec.describe "pages" do
     end
 
     it "should match fixture response" do
-      expect(client.pages.create(body).parsed_response).to eq(create_page_fixture)
+      expect(client.pages.create(body).body).to eq(create_page_fixture)
     end
   end
 
@@ -72,7 +72,7 @@ RSpec.describe "pages" do
     end
 
     it "should match fixture response" do
-      expect(client.pages.update(page_id, body).parsed_response).to eq(update_page_fixture)
+      expect(client.pages.update(page_id, body).body).to eq(update_page_fixture)
     end
   end
 end

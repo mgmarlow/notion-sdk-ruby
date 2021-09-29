@@ -1,15 +1,17 @@
 module Notion
   class Pages
+    include RequestClient
+
     def retrieve(id)
-      RequestClient.active_client.get("/v1/pages/#{id}")
+      get("/v1/pages/#{id}")
     end
 
     def create(body)
-      RequestClient.active_client.post("/v1/pages", body: body.to_json)
+      post("/v1/pages", body.to_json)
     end
 
     def update(id, body)
-      RequestClient.active_client.patch("/v1/pages/#{id}", body: body.to_json)
+      patch("/v1/pages/#{id}", body.to_json)
     end
   end
 end

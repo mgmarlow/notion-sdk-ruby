@@ -35,7 +35,7 @@ RSpec.describe "databases" do
     end
 
     it "should match fixture response" do
-      expect(client.databases.retrieve(database_id).parsed_response).to eq(get_database_fixture)
+      expect(client.databases.retrieve(database_id).body).to eq(get_database_fixture)
     end
   end
 
@@ -48,7 +48,7 @@ RSpec.describe "databases" do
     end
 
     it "should match fixture response" do
-      expect(client.databases.list.parsed_response).to eq(get_databases_fixture)
+      expect(client.databases.list.body).to eq(get_databases_fixture)
     end
   end
 
@@ -89,7 +89,7 @@ RSpec.describe "databases" do
     end
 
     it "should match fixture response" do
-      expect(client.databases.query(database_id, body).parsed_response).to eq(query_database_fixture)
+      expect(client.databases.query(database_id, body).body).to eq(query_database_fixture)
     end
   end
 
@@ -126,7 +126,7 @@ RSpec.describe "databases" do
     end
 
     it "should match fixture response" do
-      expect(client.databases.create(body).parsed_response).to eq(create_database_fixture)
+      expect(client.databases.create(body).body).to eq(create_database_fixture)
     end
   end
 
@@ -159,7 +159,7 @@ RSpec.describe "databases" do
     end
 
     it "should match fixture response" do
-      expect(client.databases.update(database_id, body).parsed_response).to eq(update_database_fixture)
+      expect(client.databases.update(database_id, body).body).to eq(update_database_fixture)
     end
   end
 end
