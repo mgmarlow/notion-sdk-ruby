@@ -1,8 +1,10 @@
 module Notion
   module Operations
     module Search
+      include RequestClient
+
       def search(body)
-        RequestClient.active_client.post("/v1/search", body: body.to_json)
+        post("/v1/search", body.to_json)
       end
     end
   end

@@ -28,7 +28,7 @@ RSpec.describe "search" do
     end
 
     it "should match fixture response" do
-      expect(client.search(body).parsed_response).to eq(search_fixture)
+      expect(client.search(body).body).to eq(search_fixture)
     end
   end
 end
