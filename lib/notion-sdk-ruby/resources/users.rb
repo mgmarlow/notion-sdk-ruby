@@ -3,11 +3,13 @@ module Notion
     include RequestClient
 
     def list
-      get("/v1/users")
+      response = get("/v1/users")
+      List.new(response.body)
     end
 
     def retrieve(id)
-      get("/v1/users/#{id}")
+      response = get("/v1/users/#{id}")
+      User.new(response.body)
     end
   end
 end

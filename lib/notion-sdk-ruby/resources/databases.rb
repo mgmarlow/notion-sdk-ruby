@@ -3,25 +3,30 @@ module Notion
     include RequestClient
 
     def retrieve(id)
-      get("/v1/databases/#{id}")
+      response = get("/v1/databases/#{id}")
+      Database.new(response.body)
     end
 
     # DEPRECATED
     def list
       warn "DEPRECATED: client.databases.list is deprecated."
-      get("/v1/databases")
+      response = get("/v1/databases")
+      List.new(response.body)
     end
 
     def query(id, body)
-      post("/v1/databases/#{id}/query", body.to_json)
+      response = post("/v1/databases/#{id}/query", body.to_json)
+      List.new(response.body)
     end
 
     def create(body)
-      post("/v1/databases", body.to_json)
+      response = post("/v1/databases", body.to_json)
+      Database.new(response.body)
     end
 
     def update(id, body)
-      patch("/v1/databases/#{id}", body.to_json)
+      response = patch("/v1/databases/#{id}", body.to_json)
+      Database.new(response.body)
     end
   end
 end

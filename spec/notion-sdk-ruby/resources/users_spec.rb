@@ -22,8 +22,17 @@ RSpec.describe "users" do
         .to have_been_made.once
     end
 
+    it "should include user models" do
+      expect(client.users.list.data).to all(be_an_instance_of(Notion::User))
+    end
+
     it "should match fixture response" do
-      expect(client.users.list.body).to eq(JSON.parse(get_users_fixture))
+      items = client.users.list.data.map(&:to_h)
+      expected = JSON.parse(get_users_fixture)["results"]
+
+      items.each_with_index do |item, i|
+        expect(item.to_json).to eq(expected[i].to_json)
+      end
     end
   end
 
@@ -35,8 +44,12 @@ RSpec.describe "users" do
         .to have_been_made.once
     end
 
+    it "should return an instance of Notion::User" do
+      expect(client.users.retrieve(user_id)).to be_an_instance_of(Notion::User)
+    end
+
     it "should match fixture response" do
-      expect(client.users.retrieve(user_id).body).to eq(JSON.parse(get_user_fixture))
+      expect(client.users.retrieve(user_id)).to eq(Notion::User.new(JSON.parse(get_user_fixture)))
     end
   end
 

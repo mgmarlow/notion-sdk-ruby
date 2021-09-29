@@ -30,8 +30,12 @@ RSpec.describe "blocks" do
         .to have_been_made.once
     end
 
+    it "should return an instance of Notion::Block" do
+      expect(client.blocks.retrieve(block_id)).to be_an_instance_of(Notion::Block)
+    end
+
     it "should match fixture response" do
-      expect(client.blocks.retrieve(block_id).body).to eq(JSON.parse(get_block_fixture))
+      expect(client.blocks.retrieve(block_id)).to be_like_fixture(get_block_fixture)
     end
   end
 
@@ -54,8 +58,12 @@ RSpec.describe "blocks" do
         .to have_been_made.once
     end
 
+    it "should return an instance of Notion::Block" do
+      expect(client.blocks.update(block_id, body)).to be_an_instance_of(Notion::Block)
+    end
+
     it "should match fixture response" do
-      expect(client.blocks.update(block_id, body).body).to eq(JSON.parse(update_block_fixture))
+      expect(client.blocks.update(block_id, body)).to be_like_fixture(update_block_fixture)
     end
   end
 
@@ -67,8 +75,17 @@ RSpec.describe "blocks" do
         .to have_been_made.once
     end
 
+    it "should include block models" do
+      expect(client.blocks.children.list(block_id).data).to all(be_an_instance_of(Notion::Block))
+    end
+
     it "should match fixture response" do
-      expect(client.blocks.children.list(block_id).body).to eq(JSON.parse(get_block_children_fixture))
+      items = client.blocks.children.list(block_id).data.map(&:to_h)
+      expected = JSON.parse(get_block_children_fixture)["results"]
+
+      items.each_with_index do |item, i|
+        expect(item.to_json).to eq(expected[i].to_json)
+      end
     end
   end
 
@@ -100,8 +117,12 @@ RSpec.describe "blocks" do
         .to have_been_made.once
     end
 
+    it "should return an instance of Notion::Block" do
+      expect(client.blocks.children.append(block_id, body)).to be_an_instance_of(Notion::Block)
+    end
+
     it "should match fixture response" do
-      expect(client.blocks.children.append(block_id, body).body).to eq(JSON.parse(append_block_children_fixture))
+      expect(client.blocks.children.append(block_id, body)).to be_like_fixture(append_block_children_fixture)
     end
   end
 end

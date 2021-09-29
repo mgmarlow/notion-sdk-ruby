@@ -28,7 +28,12 @@ RSpec.describe "search" do
     end
 
     it "should match fixture response" do
-      expect(client.search(body).body).to eq(JSON.parse(search_fixture))
+      items = client.search(body).data.map(&:to_h)
+      expected = JSON.parse(search_fixture)["results"]
+
+      items.each_with_index do |item, i|
+        expect(item.to_json).to eq(expected[i].to_json)
+      end
     end
   end
 end
