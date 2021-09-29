@@ -3,6 +3,7 @@ PATH
   specs:
     notion-sdk-ruby (0.4.1)
       faraday (~> 1.8)
+      faraday_middleware (~> 1.1)
 
 GEM
   remote: https://rubygems.org/
@@ -34,6 +35,8 @@ GEM
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
+    faraday_middleware (1.1.0)
+      faraday (~> 1.0)
     hashdiff (1.0.1)
     method_source (1.0.0)
     multipart-post (2.1.1)

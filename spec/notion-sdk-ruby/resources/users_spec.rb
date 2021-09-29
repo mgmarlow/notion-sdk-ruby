@@ -23,7 +23,7 @@ RSpec.describe "users" do
     end
 
     it "should match fixture response" do
-      expect(client.users.list.body).to eq(get_users_fixture)
+      expect(client.users.list.body).to eq(JSON.parse(get_users_fixture))
     end
   end
 
@@ -36,7 +36,7 @@ RSpec.describe "users" do
     end
 
     it "should match fixture response" do
-      expect(client.users.retrieve(user_id).body).to eq(get_user_fixture)
+      expect(client.users.retrieve(user_id).body).to eq(JSON.parse(get_user_fixture))
     end
   end
 

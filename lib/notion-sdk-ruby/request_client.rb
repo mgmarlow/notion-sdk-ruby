@@ -36,6 +36,8 @@ module Notion
           "Authorization" => "Bearer #{Notion.config.api_token}"
         }
       ) do |f|
+        f.request :json
+        f.response :json
         f.use Faraday::Response::RaiseError
       end
     end

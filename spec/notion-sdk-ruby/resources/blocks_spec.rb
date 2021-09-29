@@ -31,7 +31,7 @@ RSpec.describe "blocks" do
     end
 
     it "should match fixture response" do
-      expect(client.blocks.retrieve(block_id).body).to eq(get_block_fixture)
+      expect(client.blocks.retrieve(block_id).body).to eq(JSON.parse(get_block_fixture))
     end
   end
 
@@ -55,7 +55,7 @@ RSpec.describe "blocks" do
     end
 
     it "should match fixture response" do
-      expect(client.blocks.update(block_id, body).body).to eq(update_block_fixture)
+      expect(client.blocks.update(block_id, body).body).to eq(JSON.parse(update_block_fixture))
     end
   end
 
@@ -68,7 +68,7 @@ RSpec.describe "blocks" do
     end
 
     it "should match fixture response" do
-      expect(client.blocks.children.list(block_id).body).to eq(get_block_children_fixture)
+      expect(client.blocks.children.list(block_id).body).to eq(JSON.parse(get_block_children_fixture))
     end
   end
 
@@ -101,7 +101,7 @@ RSpec.describe "blocks" do
     end
 
     it "should match fixture response" do
-      expect(client.blocks.children.append(block_id, body).body).to eq(append_block_children_fixture)
+      expect(client.blocks.children.append(block_id, body).body).to eq(JSON.parse(append_block_children_fixture))
     end
   end
 end

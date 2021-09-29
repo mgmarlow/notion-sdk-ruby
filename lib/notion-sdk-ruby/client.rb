@@ -1,5 +1,6 @@
 module Notion
   class Client
+    include RequestClient
     include Operations::Search
 
     def initialize(token:, notion_version: "2021-08-16")
