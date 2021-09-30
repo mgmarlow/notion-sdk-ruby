@@ -34,8 +34,12 @@ RSpec.describe "databases" do
         .to have_been_made.once
     end
 
+    it "should return an instance of Notion::Database" do
+      expect(client.databases.retrieve(database_id)).to be_an_instance_of(Notion::Database)
+    end
+
     it "should match fixture response" do
-      expect(client.databases.retrieve(database_id).body).to eq(JSON.parse(get_database_fixture))
+      expect(client.databases.retrieve(database_id)).to be_like_fixture(get_database_fixture)
     end
   end
 
@@ -47,8 +51,17 @@ RSpec.describe "databases" do
         .to have_been_made.once
     end
 
+    it "should include database models" do
+      expect(client.databases.list.data).to all(be_an_instance_of(Notion::Database))
+    end
+
     it "should match fixture response" do
-      expect(client.databases.list.body).to eq(JSON.parse(get_databases_fixture))
+      items = client.databases.list.data.map(&:to_h)
+      expected = JSON.parse(get_databases_fixture)["results"]
+
+      items.each_with_index do |item, i|
+        expect(item.to_json).to eq(expected[i].to_json)
+      end
     end
   end
 
@@ -88,8 +101,17 @@ RSpec.describe "databases" do
         .to have_been_made.once
     end
 
+    it "should include user models" do
+      expect(client.databases.query(database_id, body).data).to all(be_an_instance_of(Notion::Page))
+    end
+
     it "should match fixture response" do
-      expect(client.databases.query(database_id, body).body).to eq(JSON.parse(query_database_fixture))
+      items = client.databases.query(database_id, body).data.map(&:to_h)
+      expected = JSON.parse(query_database_fixture)["results"]
+
+      items.each_with_index do |item, i|
+        expect(item.to_json).to eq(expected[i].to_json)
+      end
     end
   end
 
@@ -125,8 +147,12 @@ RSpec.describe "databases" do
         .to have_been_made.once
     end
 
+    it "should return an instance of Notion::Database" do
+      expect(client.databases.create(body)).to be_an_instance_of(Notion::Database)
+    end
+
     it "should match fixture response" do
-      expect(client.databases.create(body).body).to eq(JSON.parse(create_database_fixture))
+      expect(client.databases.create(body)).to be_like_fixture(create_database_fixture)
     end
   end
 
@@ -158,8 +184,12 @@ RSpec.describe "databases" do
         .to have_been_made.once
     end
 
+    it "should return an instance of Notion::Database" do
+      expect(client.databases.update(database_id, body)).to be_an_instance_of(Notion::Database)
+    end
+
     it "should match fixture response" do
-      expect(client.databases.update(database_id, body).body).to eq(JSON.parse(update_database_fixture))
+      expect(client.databases.update(database_id, body)).to be_like_fixture(update_database_fixture)
     end
   end
 end

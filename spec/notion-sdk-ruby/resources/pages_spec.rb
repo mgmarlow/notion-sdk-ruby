@@ -26,8 +26,12 @@ RSpec.describe "pages" do
         .to have_been_made.once
     end
 
+    it "should return an instance of Notion::Page" do
+      expect(client.pages.retrieve(page_id)).to be_an_instance_of(Notion::Page)
+    end
+
     it "should match fixture response" do
-      expect(client.pages.retrieve(page_id).body).to eq(JSON.parse(get_page_fixture))
+      expect(client.pages.retrieve(page_id)).to be_like_fixture(get_page_fixture)
     end
   end
 
@@ -50,7 +54,7 @@ RSpec.describe "pages" do
     end
 
     it "should match fixture response" do
-      expect(client.pages.create(body).body).to eq(JSON.parse(create_page_fixture))
+      expect(client.pages.create(body)).to be_like_fixture(create_page_fixture)
     end
   end
 
@@ -71,8 +75,12 @@ RSpec.describe "pages" do
         .to have_been_made.once
     end
 
+    it "should return an instance of Notion::Page" do
+      expect(client.pages.update(page_id, body)).to be_an_instance_of(Notion::Page)
+    end
+
     it "should match fixture response" do
-      expect(client.pages.update(page_id, body).body).to eq(JSON.parse(update_page_fixture))
+      expect(client.pages.update(page_id, body)).to be_like_fixture(update_page_fixture)
     end
   end
 end

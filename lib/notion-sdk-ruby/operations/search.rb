@@ -4,7 +4,8 @@ module Notion
       include RequestClient
 
       def search(body)
-        post("/v1/search", body.to_json)
+        response = post("/v1/search", body.to_json)
+        List.new(response.body)
       end
     end
   end
