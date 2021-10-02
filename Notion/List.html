@@ -478,7 +478,9 @@
 22
 23
 24
-25</pre>
+25
+26
+27</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/notion-sdk-ruby/models/list.rb', line 14</span>
@@ -493,6 +495,8 @@
     <span class='const'><span class='object_link'><a href="Page.html" title="Notion::Page (class)">Page</a></span></span>
   <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user</span><span class='tstring_end'>&quot;</span></span>
     <span class='const'><span class='object_link'><a href="User.html" title="Notion::User (class)">User</a></span></span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="NotionError.html" title="Notion::NotionError (class)">NotionError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="NotionError.html#initialize-instance_method" title="Notion::NotionError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unimplemented object type</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -505,7 +509,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Oct  2 18:36:24 2021 by
+  Generated on Sat Oct  2 18:47:02 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.7.2).
 </div>
