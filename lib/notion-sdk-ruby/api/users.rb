@@ -1,6 +1,16 @@
 module Notion
   module Api
-    class Users
+    module Users
+      def self.included(base)
+        base.class_eval do
+          def users
+            UsersMethods.new
+          end
+        end
+      end
+    end
+
+    class UsersMethods
       include RequestClient
 
       # @return [Array<Notion::User>]

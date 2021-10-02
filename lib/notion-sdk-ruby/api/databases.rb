@@ -1,6 +1,16 @@
 module Notion
   module Api
-    class Databases
+    module Databases
+      def self.included(base)
+        base.class_eval do
+          def databases
+            DatabasesMethods.new
+          end
+        end
+      end
+    end
+
+    class DatabasesMethods
       include RequestClient
 
       # @param [String] id database_id

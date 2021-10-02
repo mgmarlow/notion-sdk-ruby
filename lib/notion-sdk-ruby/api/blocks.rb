@@ -1,10 +1,20 @@
 module Notion
   module Api
-    class Blocks
+    module Blocks
+      def self.included(base)
+        base.class_eval do
+          def blocks
+            BlocksMethods.new
+          end
+        end
+      end
+    end
+
+    class BlocksMethods
       include RequestClient
 
       def children
-        Api::Children.new
+        BlocksChildrenMethods.new
       end
 
       # @param [String] id block_id
@@ -23,7 +33,7 @@ module Notion
       end
     end
 
-    class Children
+    class BlocksChildrenMethods
       include RequestClient
 
       # @param [String] id block_id

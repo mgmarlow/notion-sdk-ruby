@@ -1,6 +1,16 @@
 module Notion
   module Api
     module Search
+      def self.included(base)
+        base.class_eval do
+          include SearchMethods
+        end
+      end
+    end
+
+    module SearchMethods
+      include RequestClient
+
       # @param [Hash] body
       # @return [Array]
       def search(body)

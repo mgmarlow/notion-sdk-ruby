@@ -1,6 +1,16 @@
 module Notion
   module Api
-    class Pages
+    module Pages
+      def self.included(base)
+        base.class_eval do
+          def pages
+            PagesMethods.new
+          end
+        end
+      end
+    end
+
+    class PagesMethods
       include RequestClient
 
       # @param [String] id page_id
