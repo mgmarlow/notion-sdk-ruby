@@ -21,6 +21,8 @@ module Notion
         Page
       when "user"
         User
+      else
+        raise NotionError.new("unimplemented object type")
       end
     end
   end
