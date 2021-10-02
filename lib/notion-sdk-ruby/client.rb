@@ -1,7 +1,7 @@
 module Notion
   class Client
     include RequestClient
-    include Operations::Search
+    include Api::Search
 
     def initialize(token:, notion_version: "2021-08-16")
       Notion.api_token = token
@@ -9,19 +9,19 @@ module Notion
     end
 
     def blocks
-      Blocks.new
+      Api::Blocks.new
     end
 
     def databases
-      Databases.new
+      Api::Databases.new
     end
 
     def pages
-      Pages.new
+      Api::Pages.new
     end
 
     def users
-      Users.new
+      Api::Users.new
     end
   end
 end

@@ -125,12 +125,17 @@ RSpec.describe "blocks" do
         .to have_been_made.once
     end
 
-    it "should return an instance of Notion::Block" do
-      expect(client.blocks.children.append(block_id, body)).to be_an_instance_of(Notion::Block)
+    it "should include block models" do
+      expect(client.blocks.children.append(block_id, body).data).to all(be_an_instance_of(Notion::Block))
     end
 
     it "should match fixture response" do
-      expect(client.blocks.children.append(block_id, body)).to be_like_fixture(append_block_children_fixture)
+      items = client.blocks.children.append(block_id, body).data.map(&:to_h)
+      expected = JSON.parse(append_block_children_fixture)["results"]
+
+      items.each_with_index do |item, i|
+        expect(item.to_json).to eq(expected[i].to_json)
+      end
     end
   end
 end

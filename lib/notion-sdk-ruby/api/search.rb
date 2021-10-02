@@ -1,5 +1,5 @@
 module Notion
-  module Operations
+  module Api
     module Search
       # @param [Hash] body
       # @return [Array]
