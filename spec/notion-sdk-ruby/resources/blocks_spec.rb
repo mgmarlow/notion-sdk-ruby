@@ -16,6 +16,7 @@ RSpec.describe "blocks" do
       .to_return(body: update_block_fixture)
 
     stub_request(:get, "https://api.notion.com/v1/blocks/#{block_id}/children")
+      .with(query: hash_including({}))
       .to_return(body: get_block_children_fixture)
 
     stub_request(:patch, "https://api.notion.com/v1/blocks/#{block_id}/children")
@@ -68,6 +69,13 @@ RSpec.describe "blocks" do
   end
 
   describe "blocks#children#list" do
+    it "should allow request params" do
+      client.blocks.children.list(block_id, {foo: "bar"})
+
+      expect(a_request(:get, "https://api.notion.com/v1/blocks/#{block_id}/children?foo=bar"))
+        .to have_been_made.once
+    end
+
     it "should call GET api.notion /blocks/{id}/children" do
       client.blocks.children.list(block_id)
 
