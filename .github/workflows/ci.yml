@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby-version: ["2.6", "2.7", "3.0"]
+        ruby-version: ["2.7"]
 
     steps:
       - uses: actions/checkout@v2
@@ -32,3 +32,11 @@ jobs:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - name: Run tests
         run: bundle exec rake
+      - name: Build docs
+        run: bundle exec rake yard
+      - name: Deploy docs
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./doc
+          publish_branch: gh-pages
