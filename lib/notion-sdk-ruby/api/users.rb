@@ -9,7 +9,7 @@ module Notion
         List.new(response.body)
       end
 
-      # @param [String] user_id
+      # @param [String] id user_id
       # @return [Notion::User]
       def retrieve(id)
         response = get("/v1/users/#{id}")

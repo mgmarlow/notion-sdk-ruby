@@ -7,18 +7,18 @@ module Notion
         Api::Children.new
       end
 
-      # @param [String] block_id
+      # @param [String] id block_id
       # @return [Notion::Block]
-      def retrieve(block_id)
-        response = get("/v1/blocks/#{block_id}")
+      def retrieve(id)
+        response = get("/v1/blocks/#{id}")
         Block.new(response.body)
       end
 
-      # @param [String] block_id
+      # @param [String] id block_id
       # @param [Hash] body
       # @return [Notion::Block]
-      def update(block_id, body)
-        response = patch("/v1/blocks/#{block_id}", body.to_json)
+      def update(id, body)
+        response = patch("/v1/blocks/#{id}", body.to_json)
         Block.new(response.body)
       end
     end
@@ -26,19 +26,19 @@ module Notion
     class Children
       include RequestClient
 
-      # @param [String] block_id
+      # @param [String] id block_id
       # @param [Hash] query
       # @return [Array<Notion::Block>]
-      def list(block_id, query = {})
-        response = get("/v1/blocks/#{block_id}/children", query)
+      def list(id, query = {})
+        response = get("/v1/blocks/#{id}/children", query)
         List.new(response.body)
       end
 
-      # @param [String] block_id
+      # @param [String] id block_id
       # @param [Hash] body
       # @return [Array<Notion::Block>]
-      def append(block_id, body)
-        response = patch("/v1/blocks/#{block_id}/children", body.to_json)
+      def append(id, body)
+        response = patch("/v1/blocks/#{id}/children", body.to_json)
         List.new(response.body)
       end
     end

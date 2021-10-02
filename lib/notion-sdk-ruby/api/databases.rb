@@ -3,7 +3,7 @@ module Notion
     class Databases
       include RequestClient
 
-      # @param [String] database_id
+      # @param [String] id database_id
       # @return [Notion::Database]
       def retrieve(id)
         response = get("/v1/databases/#{id}")
@@ -18,7 +18,7 @@ module Notion
         List.new(response.body)
       end
 
-      # @param [String] database_id
+      # @param [String] id database_id
       # @param [Hash] body
       # @return [Array<Notion::Database>]
       def query(id, body)
@@ -33,7 +33,7 @@ module Notion
         Database.new(response.body)
       end
 
-      # @param [String] database_id
+      # @param [String] id database_id
       # @param [Hash] body
       # @return [Notion::Database]
       def update(id, body)

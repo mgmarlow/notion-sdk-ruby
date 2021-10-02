@@ -3,7 +3,7 @@ module Notion
     class Pages
       include RequestClient
 
-      # @param [String] page_id
+      # @param [String] id page_id
       # @return [Notion::Page]
       def retrieve(id)
         response = get("/v1/pages/#{id}")
@@ -17,7 +17,7 @@ module Notion
         Page.new(response.body)
       end
 
-      # @param [String] page_id
+      # @param [String] id page_id
       # @param [Hash] body
       # @return [Notion::Page]
       def update(id, body)
