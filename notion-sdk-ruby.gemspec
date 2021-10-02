@@ -36,4 +36,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry", "~> 0.14.1"
   spec.add_development_dependency "dotenv", "~> 2.7"
   spec.add_development_dependency "activesupport", "~> 6.1"
+  spec.add_development_dependency "yard", "~> 0.9.26"
 end
