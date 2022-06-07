@@ -1,37 +1,30 @@
-RSpec.describe "pages" do
-  let(:access_token) { "foo-1234" }
+RSpec.describe "pages", :vcr do
+  let(:access_token) { ENV["NOTION_API_KEY"] }
+
   subject(:client) { Notion::Client.new(token: access_token) }
 
-  let(:page_id) { "foo-page-1234" }
-  let(:create_page_fixture) { load_fixture("pages/200_create_page") }
-  let(:get_page_fixture) { load_fixture("pages/200_get_page") }
-  let(:update_page_fixture) { load_fixture("pages/200_update_page") }
-
-  before do
-    stub_request(:get, "https://api.notion.com/v1/pages/#{page_id}")
-      .to_return(body: get_page_fixture)
-
-    stub_request(:post, "https://api.notion.com/v1/pages")
-      .to_return(body: create_page_fixture)
-
-    stub_request(:patch, "https://api.notion.com/v1/pages/#{page_id}")
-      .to_return(body: update_page_fixture)
-  end
+  let(:page_id) { "783fdf36731349fba4cb6640a2d87e58" }
+  let(:database_id) { "0b99d13693254b809dfc617b1061c399" }
 
   describe "pages#retrieve" do
-    it "should call GET api.notion /pages/{id}" do
-      client.pages.retrieve(page_id)
-
-      expect(a_request(:get, "https://api.notion.com/v1/pages/#{page_id}"))
-        .to have_been_made.once
-    end
-
     it "should return an instance of Notion::Page" do
-      expect(client.pages.retrieve(page_id)).to be_an_instance_of(Notion::Page)
+      result = client.pages.retrieve(page_id)
+
+      aggregate_failures do
+        expect(a_request(:get, "https://api.notion.com/v1/pages/#{page_id}"))
+          .to have_been_made.once
+        expect(result).to be_an_instance_of(Notion::Page)
+      end
     end
 
-    it "should match fixture response" do
-      expect(client.pages.retrieve(page_id)).to be_like_fixture(get_page_fixture)
+    describe "when the page id is not found" do
+      let(:page_id) { "111aaa22222222bbb3cc4444d5e66f77" }
+
+      it "should raise Notion::APIResponseError" do
+        expect {
+          client.pages.retrieve(page_id)
+        }.to raise_error(Notion::APIResponseError)
+      end
     end
   end
 
@@ -39,22 +32,21 @@ RSpec.describe "pages" do
     let(:body) do
       {
         parent: {
-          database_id: "abcd-database-1234"
+          database_id: database_id
         },
         properties: {}
       }
     end
 
-    it "should call POST api.notion /pages/" do
-      client.pages.create(body)
+    it "should return an instance of Notion::Page" do
+      result = client.pages.create(body)
 
-      expect(a_request(:post, "https://api.notion.com/v1/pages")
-        .with(body: body))
-        .to have_been_made.once
-    end
-
-    it "should match fixture response" do
-      expect(client.pages.create(body)).to be_like_fixture(create_page_fixture)
+      aggregate_failures do
+        expect(a_request(:post, "https://api.notion.com/v1/pages")
+          .with(body: body))
+          .to have_been_made.once
+        expect(result).to be_an_instance_of(Notion::Page)
+      end
     end
   end
 
@@ -67,20 +59,15 @@ RSpec.describe "pages" do
       }
     end
 
-    it "should call PATCH api.notion /pages/{id}" do
-      client.pages.update(page_id, body)
-
-      expect(a_request(:patch, "https://api.notion.com/v1/pages/#{page_id}")
-        .with(body: body))
-        .to have_been_made.once
-    end
-
     it "should return an instance of Notion::Page" do
-      expect(client.pages.update(page_id, body)).to be_an_instance_of(Notion::Page)
-    end
+      result = client.pages.update(page_id, body)
 
-    it "should match fixture response" do
-      expect(client.pages.update(page_id, body)).to be_like_fixture(update_page_fixture)
+      aggregate_failures do
+        expect(a_request(:patch, "https://api.notion.com/v1/pages/#{page_id}")
+          .with(body: body))
+          .to have_been_made.once
+        expect(result).to be_an_instance_of(Notion::Page)
+      end
     end
   end
 end
