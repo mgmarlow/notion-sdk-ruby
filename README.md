@@ -11,7 +11,6 @@ Unofficial Ruby client for the [Notion APIs](https://developers.notion.com/).
   - [API reference](#api-reference)
     - [Databases](#databases)
       - [databases#retrieve](#databasesretrieve)
-      - [databases#list](#databaseslist)
       - [databases#query](#databasesquery)
       - [databases#create](#databasescreate)
       - [databases#update](#databasesupdate)
@@ -64,14 +63,6 @@ client = Notion::Client.new(token: ENV["NOTION_API_SECRET"])
 
 ```rb
 client.databases.retrieve("668d797c-76fa-4934-9b05-ad288df2d136")
-```
-
-#### databases#list
-
-[API reference](https://developers.notion.com/reference/get-databases)
-
-```rb
-client.databases.list
 ```
 
 #### databases#query
