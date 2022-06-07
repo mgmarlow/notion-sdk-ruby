@@ -324,7 +324,7 @@ Before using `bin/console` you need to create a new file, `.env`, at the root pr
 
 ```
 cat > .env <<EOF
-API_SECRET=<YOUR NOTION API SECRET HERE>
+NOTION_API_KEY=<YOUR NOTION API SECRET HERE>
 EOF
 ```
 

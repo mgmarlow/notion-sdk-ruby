@@ -1,6 +1,8 @@
 require "bundler/setup"
 require "active_support/core_ext/hash/indifferent_access"
 require "webmock/rspec"
+require "dotenv/load"
+require "vcr"
 require "notion-sdk-ruby"
 
 def load_fixture(path)
@@ -11,6 +13,13 @@ RSpec::Matchers.define :be_like_fixture do |expected|
   match do |actual|
     actual.to_h.with_indifferent_access == JSON.parse(expected)
   end
+end
+
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/fixtures/cassettes"
+  config.hook_into :webmock
+  config.configure_rspec_metadata!
+  config.filter_sensitive_data("<API_KEY>") { ENV["NOTION_API_KEY"] }
 end
 
 RSpec.configure do |config|

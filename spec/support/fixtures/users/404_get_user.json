@@ -1,6 +1,0 @@
-{
-  "object": "error",
-  "status": 404,
-  "code": "object_not_found",
-  "message": "Could not find user with ID: 1234."
-}
