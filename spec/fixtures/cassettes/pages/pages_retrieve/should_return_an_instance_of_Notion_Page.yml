@@ -10,7 +10,7 @@ http_interactions:
       Content-Type:
       - application/json
       Notion-Version:
-      - '2021-08-16'
+      - '2022-02-22'
       Authorization:
       - Bearer <API_KEY>
       User-Agent:
@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 07 Jun 2022 03:14:39 GMT
+      - Tue, 07 Jun 2022 03:36:47 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -33,10 +33,10 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - notion_browser_id=31720541-f9e2-4fc2-a12f-ad58dacd8d00; Domain=www.notion.so;
-        Path=/; Expires=Wed, 07 Jun 2023 03:14:38 GMT; Secure
+      - notion_browser_id=53322592-2bf0-48e6-b656-dd8ce2aae40c; Domain=www.notion.so;
+        Path=/; Expires=Wed, 07 Jun 2023 03:36:47 GMT; Secure
       - notion_check_cookie_consent=false; Domain=www.notion.so; Path=/; Expires=Wed,
-        08 Jun 2022 03:14:38 GMT; Secure
+        08 Jun 2022 03:36:47 GMT; Secure
       Content-Security-Policy:
       - 'script-src ''self'' ''unsafe-inline'' ''unsafe-eval'' https://gist.github.com
         https://apis.google.com https://www.google.com https://www.gstatic.com https://cdn.amplitude.com
@@ -85,7 +85,7 @@ http_interactions:
       X-Xss-Protection:
       - '0'
       Etag:
-      - W/"301-pjEJxv0EzlK7aWOC2x88olfgW2w"
+      - W/"301-xpoH/3Yl/ERNusr9TYDXa6xD+5M"
       Vary:
       - Accept-Encoding
       Cf-Cache-Status:
@@ -95,10 +95,10 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 717638013a099836-SJC
+      - 717658703d146435-SJC
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJvYmplY3QiOiJwYWdlIiwiaWQiOiI3ODNmZGYzNi03MzEzLTQ5ZmItYTRjYi02NjQwYTJkODdlNTgiLCJjcmVhdGVkX3RpbWUiOiIyMDIyLTA2LTA1VDE5OjMzOjAwLjAwMFoiLCJsYXN0X2VkaXRlZF90aW1lIjoiMjAyMi0wNi0wNlQwNDoyMjowMC4wMDBaIiwiY3JlYXRlZF9ieSI6eyJvYmplY3QiOiJ1c2VyIiwiaWQiOiI2OGFmMGQ2Yi0zMjgxLTQ0NDctOWQwMy1hNmE5NDVlY2Q0MjcifSwibGFzdF9lZGl0ZWRfYnkiOnsib2JqZWN0IjoidXNlciIsImlkIjoiZGRhZGQzMDYtY2JiMy00YjExLTkwNWMtNzk3NmMzZjhkMDlmIn0sImNvdmVyIjpudWxsLCJpY29uIjp7InR5cGUiOiJlbW9qaSIsImVtb2ppIjoi8J+TjCJ9LCJwYXJlbnQiOnsidHlwZSI6IndvcmtzcGFjZSIsIndvcmtzcGFjZSI6dHJ1ZX0sImFyY2hpdmVkIjpmYWxzZSwicHJvcGVydGllcyI6eyJ0aXRsZSI6eyJpZCI6InRpdGxlIiwidHlwZSI6InRpdGxlIiwidGl0bGUiOlt7InR5cGUiOiJ0ZXh0IiwidGV4dCI6eyJjb250ZW50IjoiUXVpY2sgTm90ZSIsImxpbmsiOm51bGx9LCJhbm5vdGF0aW9ucyI6eyJib2xkIjpmYWxzZSwiaXRhbGljIjpmYWxzZSwic3RyaWtldGhyb3VnaCI6ZmFsc2UsInVuZGVybGluZSI6ZmFsc2UsImNvZGUiOmZhbHNlLCJjb2xvciI6ImRlZmF1bHQifSwicGxhaW5fdGV4dCI6IlF1aWNrIE5vdGUiLCJocmVmIjpudWxsfV19fSwidXJsIjoiaHR0cHM6Ly93d3cubm90aW9uLnNvL1F1aWNrLU5vdGUtNzgzZmRmMzY3MzEzNDlmYmE0Y2I2NjQwYTJkODdlNTgifQ==
-  recorded_at: Tue, 07 Jun 2022 03:14:39 GMT
+        eyJvYmplY3QiOiJwYWdlIiwiaWQiOiI3ODNmZGYzNi03MzEzLTQ5ZmItYTRjYi02NjQwYTJkODdlNTgiLCJjcmVhdGVkX3RpbWUiOiIyMDIyLTA2LTA1VDE5OjMzOjAwLjAwMFoiLCJsYXN0X2VkaXRlZF90aW1lIjoiMjAyMi0wNi0wN1QwMzozNjowMC4wMDBaIiwiY3JlYXRlZF9ieSI6eyJvYmplY3QiOiJ1c2VyIiwiaWQiOiI2OGFmMGQ2Yi0zMjgxLTQ0NDctOWQwMy1hNmE5NDVlY2Q0MjcifSwibGFzdF9lZGl0ZWRfYnkiOnsib2JqZWN0IjoidXNlciIsImlkIjoiZGRhZGQzMDYtY2JiMy00YjExLTkwNWMtNzk3NmMzZjhkMDlmIn0sImNvdmVyIjpudWxsLCJpY29uIjp7InR5cGUiOiJlbW9qaSIsImVtb2ppIjoi8J+TjCJ9LCJwYXJlbnQiOnsidHlwZSI6IndvcmtzcGFjZSIsIndvcmtzcGFjZSI6dHJ1ZX0sImFyY2hpdmVkIjpmYWxzZSwicHJvcGVydGllcyI6eyJ0aXRsZSI6eyJpZCI6InRpdGxlIiwidHlwZSI6InRpdGxlIiwidGl0bGUiOlt7InR5cGUiOiJ0ZXh0IiwidGV4dCI6eyJjb250ZW50IjoiUXVpY2sgTm90ZSIsImxpbmsiOm51bGx9LCJhbm5vdGF0aW9ucyI6eyJib2xkIjpmYWxzZSwiaXRhbGljIjpmYWxzZSwic3RyaWtldGhyb3VnaCI6ZmFsc2UsInVuZGVybGluZSI6ZmFsc2UsImNvZGUiOmZhbHNlLCJjb2xvciI6ImRlZmF1bHQifSwicGxhaW5fdGV4dCI6IlF1aWNrIE5vdGUiLCJocmVmIjpudWxsfV19fSwidXJsIjoiaHR0cHM6Ly93d3cubm90aW9uLnNvL1F1aWNrLU5vdGUtNzgzZmRmMzY3MzEzNDlmYmE0Y2I2NjQwYTJkODdlNTgifQ==
+  recorded_at: Tue, 07 Jun 2022 03:36:47 GMT
 recorded_with: VCR 6.1.0

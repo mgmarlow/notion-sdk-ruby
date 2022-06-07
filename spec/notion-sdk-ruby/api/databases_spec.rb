@@ -29,18 +29,6 @@ RSpec.describe "databases", :vcr do
     end
   end
 
-  describe "databases#list" do
-    it "should return a list of Notion::Database" do
-      result = client.databases.list
-
-      aggregate_failures do
-        expect(a_request(:get, "https://api.notion.com/v1/databases"))
-          .to have_been_made.once
-        expect(result.data).to all(be_an_instance_of(Notion::Database))
-      end
-    end
-  end
-
   describe "databases#query" do
     let(:body) do
       {

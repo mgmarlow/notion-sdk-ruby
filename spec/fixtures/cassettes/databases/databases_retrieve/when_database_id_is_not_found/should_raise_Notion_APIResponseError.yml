@@ -10,7 +10,7 @@ http_interactions:
       Content-Type:
       - application/json
       Notion-Version:
-      - '2021-08-16'
+      - '2022-02-22'
       Authorization:
       - Bearer <API_KEY>
       User-Agent:
@@ -25,7 +25,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Mon, 06 Jun 2022 04:22:10 GMT
+      - Tue, 07 Jun 2022 03:36:46 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -33,10 +33,10 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - notion_browser_id=96a8f53e-cad0-41b8-932a-a43c30208372; Domain=www.notion.so;
-        Path=/; Expires=Tue, 06 Jun 2023 04:22:10 GMT; Secure
-      - notion_check_cookie_consent=false; Domain=www.notion.so; Path=/; Expires=Tue,
-        07 Jun 2022 04:22:10 GMT; Secure
+      - notion_browser_id=41cd508c-8ab9-4b55-bb3a-69e0f5c3e524; Domain=www.notion.so;
+        Path=/; Expires=Wed, 07 Jun 2023 03:36:46 GMT; Secure
+      - notion_check_cookie_consent=false; Domain=www.notion.so; Path=/; Expires=Wed,
+        08 Jun 2022 03:36:46 GMT; Secure
       Content-Security-Policy:
       - 'script-src ''self'' ''unsafe-inline'' ''unsafe-eval'' https://gist.github.com
         https://apis.google.com https://www.google.com https://www.gstatic.com https://cdn.amplitude.com
@@ -95,11 +95,11 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 716e5d8c1dfa9e65-SJC
+      - 7176586b3b9c97cd-SJC
     body:
       encoding: ASCII-8BIT
       string: '{"object":"error","status":404,"code":"object_not_found","message":"Could
         not find database with ID: 0a11b111-1111-1c11-1dfc-111b1111c111. Make sure
         the relevant pages and databases are shared with your integration."}'
-  recorded_at: Mon, 06 Jun 2022 04:22:10 GMT
+  recorded_at: Tue, 07 Jun 2022 03:36:46 GMT
 recorded_with: VCR 6.1.0

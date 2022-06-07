@@ -10,7 +10,7 @@ http_interactions:
       Content-Type:
       - application/json
       Notion-Version:
-      - '2021-08-16'
+      - '2022-02-22'
       Authorization:
       - Bearer <API_KEY>
       User-Agent:
@@ -25,7 +25,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Tue, 07 Jun 2022 03:14:39 GMT
+      - Tue, 07 Jun 2022 03:36:47 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -33,10 +33,10 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - notion_browser_id=68165bf4-a0cf-4d6d-bf5c-df2168053480; Domain=www.notion.so;
-        Path=/; Expires=Wed, 07 Jun 2023 03:14:39 GMT; Secure
+      - notion_browser_id=576a8dd6-3cdc-4d49-b105-7ff2d4093abc; Domain=www.notion.so;
+        Path=/; Expires=Wed, 07 Jun 2023 03:36:47 GMT; Secure
       - notion_check_cookie_consent=false; Domain=www.notion.so; Path=/; Expires=Wed,
-        08 Jun 2022 03:14:39 GMT; Secure
+        08 Jun 2022 03:36:47 GMT; Secure
       Content-Security-Policy:
       - 'script-src ''self'' ''unsafe-inline'' ''unsafe-eval'' https://gist.github.com
         https://apis.google.com https://www.google.com https://www.gstatic.com https://cdn.amplitude.com
@@ -95,11 +95,11 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7176380279979809-SJC
+      - 7176587188e49831-SJC
     body:
       encoding: ASCII-8BIT
       string: '{"object":"error","status":404,"code":"object_not_found","message":"Could
         not find page with ID: 111aaa22-2222-22bb-b3cc-4444d5e66f77. Make sure the
         relevant pages and databases are shared with your integration."}'
-  recorded_at: Tue, 07 Jun 2022 03:14:39 GMT
+  recorded_at: Tue, 07 Jun 2022 03:36:47 GMT
 recorded_with: VCR 6.1.0

@@ -1,9 +1,9 @@
-RSpec.describe "users" do
+RSpec.describe "users", :vcr do
   let(:access_token) { ENV["NOTION_API_KEY"] }
 
   subject(:client) { Notion::Client.new(token: access_token) }
 
-  describe "#get_users", :vcr do
+  describe "#get_users" do
     it "should return a list of Notion::User" do
       result = client.users.list
 
@@ -25,7 +25,7 @@ RSpec.describe "users" do
     end
   end
 
-  describe "#get_user", :vcr do
+  describe "#get_user" do
     let(:user_id) { "68af0d6b-3281-4447-9d03-a6a945ecd427" }
 
     it "should return a Notion::User" do

@@ -34,109 +34,6 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - notion_browser_id=343cb3a2-d328-43d5-9cca-4869f145d7d9; Domain=www.notion.so;
-        Path=/; Expires=Tue, 06 Jun 2023 04:22:11 GMT; Secure
-      - notion_check_cookie_consent=false; Domain=www.notion.so; Path=/; Expires=Tue,
-        07 Jun 2022 04:22:11 GMT; Secure
-      Content-Security-Policy:
-      - 'script-src ''self'' ''unsafe-inline'' ''unsafe-eval'' https://gist.github.com
-        https://apis.google.com https://www.google.com https://www.gstatic.com https://cdn.amplitude.com
-        https://api.amplitude.com https://hkfxbbdzib.notion.so https://widget.intercom.io
-        https://js.intercomcdn.com https://logs-01.loggly.com https://cdn.segment.com
-        https://analytics.pgncs.notion.so https://o324374.ingest.sentry.io https://checkout.stripe.com
-        https://js.stripe.com https://embed.typeform.com https://admin.typeform.com
-        https://public.profitwell.com js.sentry-cdn.com https://js.chilipiper.com
-        https://platform.twitter.com https://cdn.syndication.twimg.com www.googletagmanager.com
-        https://www.googleadservices.com https://googleads.g.doubleclick.net https://api-v2.mutinyhq.io
-        https://client-registry.mutinycdn.com https://client.mutinycdn.com https://user-data.mutinycdn.com;connect-src
-        ''self'' https://msgstore.www.notion.so wss://msgstore.www.notion.so ws://localhost:*
-        ws://127.0.0.1:* https://notion-emojis.s3-us-west-2.amazonaws.com https://s3-us-west-2.amazonaws.com
-        https://s3.us-west-2.amazonaws.com https://notion-production-snapshots-2.s3.us-west-2.amazonaws.com
-        https://cdn.amplitude.com https://api.amplitude.com https://hkfxbbdzib.notion.so
-        https://www.notion.so https://api.embed.ly https://js.intercomcdn.com https://api-iam.intercom.io
-        https://uploads.intercomcdn.com wss://nexus-websocket-a.intercom.io https://logs-01.loggly.com
-        https://cdn.segment.com https://api.segment.io https://analytics.pgncs.notion.so
-        https://api.pgncs.notion.so https://o324374.ingest.sentry.io https://checkout.stripe.com
-        https://js.stripe.com https://cdn.contentful.com https://preview.contentful.com
-        https://images.ctfassets.net https://www2.profitwell.com https://tracking.chilipiper.com
-        https://api.chilipiper.com https://api.unsplash.com https://boards-api.greenhouse.io
-        https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google-analytics.com
-        https://api-v2.mutinyhq.io https://client-registry.mutinycdn.com https://client.mutinycdn.com
-        https://user-data.mutinycdn.com https://api.statuspage.io https://pgncd.notion.so
-        https://api.statsig.com;font-src ''self'' data: https://cdnjs.cloudflare.com
-        https://js.intercomcdn.com;img-src ''self'' data: blob: https: https://platform.twitter.com
-        https://syndication.twitter.com https://pbs.twimg.com https://ton.twimg.com;style-src
-        ''self'' ''unsafe-inline'' https://cdnjs.cloudflare.com https://github.githubassets.com
-        https://js.chilipiper.com https://platform.twitter.com https://ton.twimg.com;frame-src
-        https: http:;media-src https: http:'
-      X-Dns-Prefetch-Control:
-      - 'off'
-      X-Frame-Options:
-      - SAMEORIGIN
-      Strict-Transport-Security:
-      - max-age=5184000; includeSubDomains
-      X-Download-Options:
-      - noopen
-      X-Content-Type-Options:
-      - nosniff
-      X-Permitted-Cross-Domain-Policies:
-      - none
-      Referrer-Policy:
-      - same-origin
-      X-Xss-Protection:
-      - '0'
-      Etag:
-      - W/"319-9/5/e/1YQsMzTHfwlMZSIgdN51M"
-      Vary:
-      - Accept-Encoding
-      Cf-Cache-Status:
-      - DYNAMIC
-      Expect-Ct:
-      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 716e5d9139d9645f-SJC
-    body:
-      encoding: ASCII-8BIT
-      string: '{"object":"database","id":"d3a7fe21-e2ce-412f-8f77-280827a0bd44","cover":null,"icon":null,"created_time":"2022-06-06T04:22:00.000Z","created_by":{"object":"user","id":"ddadd306-cbb3-4b11-905c-7976c3f8d09f"},"last_edited_by":{"object":"user","id":"ddadd306-cbb3-4b11-905c-7976c3f8d09f"},"last_edited_time":"2022-06-06T04:22:00.000Z","title":[{"type":"text","text":{"content":"Grocery
-        List","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Grocery
-        List","href":null}],"properties":{"Name":{"id":"title","name":"Name","type":"title","title":{}}},"parent":{"type":"page_id","page_id":"783fdf36-7313-49fb-a4cb-6640a2d87e58"},"url":"https://www.notion.so/d3a7fe21e2ce412f8f77280827a0bd44","archived":false}'
-  recorded_at: Mon, 06 Jun 2022 04:22:12 GMT
-- request:
-    method: post
-    uri: https://api.notion.com/v1/databases
-    body:
-      encoding: UTF-8
-      string: '{"parent":{"type":"page_id","page_id":"783fdf36731349fba4cb6640a2d87e58"},"title":[{"type":"text","text":{"content":"Grocery
-        List","link":null}}],"properties":{"Name":{"title":{}}}}'
-    headers:
-      Content-Type:
-      - application/json
-      Notion-Version:
-      - '2021-08-16'
-      Authorization:
-      - Bearer <API_KEY>
-      User-Agent:
-      - Faraday v1.8.0
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Mon, 06 Jun 2022 04:22:12 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Set-Cookie:
       - notion_browser_id=2168d8b9-8e69-447a-86dc-dcede986fc59; Domain=www.notion.so;
         Path=/; Expires=Tue, 06 Jun 2023 04:22:12 GMT; Secure
       - notion_check_cookie_consent=false; Domain=www.notion.so; Path=/; Expires=Tue,
@@ -206,4 +103,107 @@ http_interactions:
         List","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Grocery
         List","href":null}],"properties":{"Name":{"id":"title","name":"Name","type":"title","title":{}}},"parent":{"type":"page_id","page_id":"783fdf36-7313-49fb-a4cb-6640a2d87e58"},"url":"https://www.notion.so/d722a0ea48db4589a522e56881e21d34","archived":false}'
   recorded_at: Mon, 06 Jun 2022 04:22:12 GMT
+- request:
+    method: post
+    uri: https://api.notion.com/v1/databases
+    body:
+      encoding: UTF-8
+      string: '{"parent":{"type":"page_id","page_id":"783fdf36731349fba4cb6640a2d87e58"},"title":[{"type":"text","text":{"content":"Grocery
+        List","link":null}}],"properties":{"Name":{"title":{}}}}'
+    headers:
+      Content-Type:
+      - application/json
+      Notion-Version:
+      - '2022-02-22'
+      Authorization:
+      - Bearer <API_KEY>
+      User-Agent:
+      - Faraday v1.8.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 07 Jun 2022 03:36:47 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - notion_browser_id=c6c0c762-578c-4fc6-8811-4fc08daecc93; Domain=www.notion.so;
+        Path=/; Expires=Wed, 07 Jun 2023 03:36:46 GMT; Secure
+      - notion_check_cookie_consent=false; Domain=www.notion.so; Path=/; Expires=Wed,
+        08 Jun 2022 03:36:46 GMT; Secure
+      Content-Security-Policy:
+      - 'script-src ''self'' ''unsafe-inline'' ''unsafe-eval'' https://gist.github.com
+        https://apis.google.com https://www.google.com https://www.gstatic.com https://cdn.amplitude.com
+        https://api.amplitude.com https://hkfxbbdzib.notion.so https://widget.intercom.io
+        https://js.intercomcdn.com https://logs-01.loggly.com https://cdn.segment.com
+        https://analytics.pgncs.notion.so https://o324374.ingest.sentry.io https://checkout.stripe.com
+        https://js.stripe.com https://embed.typeform.com https://admin.typeform.com
+        https://public.profitwell.com js.sentry-cdn.com https://js.chilipiper.com
+        https://platform.twitter.com https://cdn.syndication.twimg.com www.googletagmanager.com
+        https://www.googleadservices.com https://googleads.g.doubleclick.net https://api-v2.mutinyhq.io
+        https://client-registry.mutinycdn.com https://client.mutinycdn.com https://user-data.mutinycdn.com;connect-src
+        ''self'' https://msgstore.www.notion.so wss://msgstore.www.notion.so ws://localhost:*
+        ws://127.0.0.1:* https://notion-emojis.s3-us-west-2.amazonaws.com https://s3-us-west-2.amazonaws.com
+        https://s3.us-west-2.amazonaws.com https://notion-production-snapshots-2.s3.us-west-2.amazonaws.com
+        https://cdn.amplitude.com https://api.amplitude.com https://hkfxbbdzib.notion.so
+        https://www.notion.so https://api.embed.ly https://js.intercomcdn.com https://api-iam.intercom.io
+        https://uploads.intercomcdn.com wss://nexus-websocket-a.intercom.io https://logs-01.loggly.com
+        https://cdn.segment.com https://api.segment.io https://analytics.pgncs.notion.so
+        https://api.pgncs.notion.so https://o324374.ingest.sentry.io https://checkout.stripe.com
+        https://js.stripe.com https://cdn.contentful.com https://preview.contentful.com
+        https://images.ctfassets.net https://www2.profitwell.com https://tracking.chilipiper.com
+        https://api.chilipiper.com https://api.unsplash.com https://boards-api.greenhouse.io
+        https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google-analytics.com
+        https://api-v2.mutinyhq.io https://client-registry.mutinycdn.com https://client.mutinycdn.com
+        https://user-data.mutinycdn.com https://api.statuspage.io https://pgncd.notion.so
+        https://api.statsig.com;font-src ''self'' data: https://cdnjs.cloudflare.com
+        https://js.intercomcdn.com;img-src ''self'' data: blob: https: https://platform.twitter.com
+        https://syndication.twitter.com https://pbs.twimg.com https://ton.twimg.com;style-src
+        ''self'' ''unsafe-inline'' https://cdnjs.cloudflare.com https://github.githubassets.com
+        https://js.chilipiper.com https://platform.twitter.com https://ton.twimg.com;frame-src
+        https: http:;media-src https: http:'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Strict-Transport-Security:
+      - max-age=5184000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - same-origin
+      X-Xss-Protection:
+      - '0'
+      Etag:
+      - W/"319-dfcY6ttf+dWH3CR2Cuw8+ONK8q4"
+      Vary:
+      - Accept-Encoding
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7176586cacea9803-SJC
+    body:
+      encoding: ASCII-8BIT
+      string: '{"object":"database","id":"754757b2-c6f1-4790-8a1e-41b0fead947b","cover":null,"icon":null,"created_time":"2022-06-07T03:36:00.000Z","created_by":{"object":"user","id":"ddadd306-cbb3-4b11-905c-7976c3f8d09f"},"last_edited_by":{"object":"user","id":"ddadd306-cbb3-4b11-905c-7976c3f8d09f"},"last_edited_time":"2022-06-07T03:36:00.000Z","title":[{"type":"text","text":{"content":"Grocery
+        List","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Grocery
+        List","href":null}],"properties":{"Name":{"id":"title","name":"Name","type":"title","title":{}}},"parent":{"type":"page_id","page_id":"783fdf36-7313-49fb-a4cb-6640a2d87e58"},"url":"https://www.notion.so/754757b2c6f147908a1e41b0fead947b","archived":false}'
+  recorded_at: Tue, 07 Jun 2022 03:36:47 GMT
 recorded_with: VCR 6.1.0

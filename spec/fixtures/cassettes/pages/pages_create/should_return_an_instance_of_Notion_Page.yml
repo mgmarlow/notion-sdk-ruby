@@ -10,7 +10,7 @@ http_interactions:
       Content-Type:
       - application/json
       Notion-Version:
-      - '2021-08-16'
+      - '2022-02-22'
       Authorization:
       - Bearer <API_KEY>
       User-Agent:
@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 07 Jun 2022 03:14:39 GMT
+      - Tue, 07 Jun 2022 03:36:47 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -33,10 +33,10 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - notion_browser_id=51b9f0f4-a914-4b45-9d71-cd0da8f3badb; Domain=www.notion.so;
-        Path=/; Expires=Wed, 07 Jun 2023 03:14:39 GMT; Secure
+      - notion_browser_id=1ca1b804-3aa7-420e-ac9f-6e2ca4aa7161; Domain=www.notion.so;
+        Path=/; Expires=Wed, 07 Jun 2023 03:36:47 GMT; Secure
       - notion_check_cookie_consent=false; Domain=www.notion.so; Path=/; Expires=Wed,
-        08 Jun 2022 03:14:39 GMT; Secure
+        08 Jun 2022 03:36:47 GMT; Secure
       Content-Security-Policy:
       - 'script-src ''self'' ''unsafe-inline'' ''unsafe-eval'' https://gist.github.com
         https://apis.google.com https://www.google.com https://www.gstatic.com https://cdn.amplitude.com
@@ -85,7 +85,7 @@ http_interactions:
       X-Xss-Protection:
       - '0'
       Etag:
-      - W/"2ac-N4GwOsnihA3yMqYaGL+kDAF9vyc"
+      - W/"2ac-lJsGlOrBijRZJHc4p5qd3kU/dYc"
       Vary:
       - Accept-Encoding
       Cf-Cache-Status:
@@ -95,11 +95,11 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7176380439089870-SJC
+      - 717658723af797b7-SJC
     body:
       encoding: ASCII-8BIT
-      string: '{"object":"page","id":"3b3363bd-0793-4e33-88ca-f15901ccf3ca","created_time":"2022-06-07T03:14:00.000Z","last_edited_time":"2022-06-07T03:14:00.000Z","created_by":{"object":"user","id":"ddadd306-cbb3-4b11-905c-7976c3f8d09f"},"last_edited_by":{"object":"user","id":"ddadd306-cbb3-4b11-905c-7976c3f8d09f"},"cover":null,"icon":null,"parent":{"type":"database_id","database_id":"0b99d136-9325-4b80-9dfc-617b1061c399"},"archived":false,"properties":{"In
+      string: '{"object":"page","id":"92d0a37f-003e-41e3-9a00-430bc0719091","created_time":"2022-06-07T03:36:00.000Z","last_edited_time":"2022-06-07T03:36:00.000Z","created_by":{"object":"user","id":"ddadd306-cbb3-4b11-905c-7976c3f8d09f"},"last_edited_by":{"object":"user","id":"ddadd306-cbb3-4b11-905c-7976c3f8d09f"},"cover":null,"icon":null,"parent":{"type":"database_id","database_id":"0b99d136-9325-4b80-9dfc-617b1061c399"},"archived":false,"properties":{"In
         stock":{"id":"VG%5E%3C","type":"checkbox","checkbox":false},"Cost of next
-        trip":{"id":"dgWa","type":"number","number":null},"Name":{"id":"title","type":"title","title":[]}},"url":"https://www.notion.so/3b3363bd07934e3388caf15901ccf3ca"}'
-  recorded_at: Tue, 07 Jun 2022 03:14:39 GMT
+        trip":{"id":"dgWa","type":"number","number":null},"Name":{"id":"title","type":"title","title":[]}},"url":"https://www.notion.so/92d0a37f003e41e39a00430bc0719091"}'
+  recorded_at: Tue, 07 Jun 2022 03:36:47 GMT
 recorded_with: VCR 6.1.0

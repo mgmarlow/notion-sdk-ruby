@@ -10,7 +10,7 @@ http_interactions:
       Content-Type:
       - application/json
       Notion-Version:
-      - '2021-08-16'
+      - '2022-02-22'
       Authorization:
       - Bearer <API_KEY>
       User-Agent:
@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 05 Jun 2022 19:37:44 GMT
+      - Tue, 07 Jun 2022 03:36:48 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -33,10 +33,10 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - notion_browser_id=4f07ca3f-9a83-4fa0-8779-00df12454782; Domain=www.notion.so;
-        Path=/; Expires=Mon, 05 Jun 2023 19:37:43 GMT; Secure
-      - notion_check_cookie_consent=false; Domain=www.notion.so; Path=/; Expires=Mon,
-        06 Jun 2022 19:37:43 GMT; Secure
+      - notion_browser_id=5b0263d7-e2c6-4e26-be08-7ddd0d3ffe19; Domain=www.notion.so;
+        Path=/; Expires=Wed, 07 Jun 2023 03:36:48 GMT; Secure
+      - notion_check_cookie_consent=false; Domain=www.notion.so; Path=/; Expires=Wed,
+        08 Jun 2022 03:36:48 GMT; Secure
       Content-Security-Policy:
       - 'script-src ''self'' ''unsafe-inline'' ''unsafe-eval'' https://gist.github.com
         https://apis.google.com https://www.google.com https://www.gstatic.com https://cdn.amplitude.com
@@ -85,7 +85,7 @@ http_interactions:
       X-Xss-Protection:
       - '0'
       Etag:
-      - W/"1e1-0z+Ynecpvi6ihJl0+Dq3JwWCScE"
+      - W/"1f9-UWx+wC5B7k9x8xAmX/jRfMnHcmc"
       Vary:
       - Accept-Encoding
       Cf-Cache-Status:
@@ -95,10 +95,10 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 716b5d4e6c51985a-SJC
+      - 717658763a4faaa5-SJC
     body:
       encoding: ASCII-8BIT
       string: '{"object":"list","results":[{"object":"user","id":"68af0d6b-3281-4447-9d03-a6a945ecd427","name":"notion
-        bot","avatar_url":"https://lh3.googleusercontent.com/a/AATXAJzQjMli0Q7ot5TLE_KFVYtSl5zRkBonHN-EfZwy=s100","type":"person","person":{"email":"notionsdkruby@gmail.com"}},{"object":"user","id":"ddadd306-cbb3-4b11-905c-7976c3f8d09f","name":"notion-ruby-sdk","avatar_url":null,"type":"bot","bot":{"owner":{"type":"workspace","workspace":true}}}],"next_cursor":null,"has_more":false}'
-  recorded_at: Sun, 05 Jun 2022 19:37:43 GMT
+        bot","avatar_url":"https://lh3.googleusercontent.com/a/AATXAJzQjMli0Q7ot5TLE_KFVYtSl5zRkBonHN-EfZwy=s100","type":"person","person":{"email":"notionsdkruby@gmail.com"}},{"object":"user","id":"ddadd306-cbb3-4b11-905c-7976c3f8d09f","name":"notion-ruby-sdk","avatar_url":null,"type":"bot","bot":{"owner":{"type":"workspace","workspace":true}}}],"next_cursor":null,"has_more":false,"type":"user","user":{}}'
+  recorded_at: Tue, 07 Jun 2022 03:36:48 GMT
 recorded_with: VCR 6.1.0

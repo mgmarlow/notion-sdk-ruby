@@ -20,14 +20,6 @@ module Notion
         Database.new(response.body)
       end
 
-      # @deprecated
-      # @return [Array<Notion::Database>]
-      def list
-        warn "DEPRECATED: client.databases.list is deprecated."
-        response = get("/v1/databases")
-        List.new(response.body)
-      end
-
       # @param [String] id database_id
       # @param [Hash] body
       # @return [Array<Notion::Database>]
