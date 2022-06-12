@@ -1,5 +1,7 @@
 module Notion
   module RequestClient
+    private
+
     def get(*args)
       handle_request(:get, *args)
     end
@@ -15,8 +17,6 @@ module Notion
     def delete(*args)
       handle_request(:delete, *args)
     end
-
-    private
 
     def handle_request(method, *args)
       faraday_client.public_send(method, *args)

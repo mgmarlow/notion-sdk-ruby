@@ -1,18 +1,10 @@
 module Notion
   module Api
-    module Pages
-      def self.included(base)
-        base.class_eval do
-          def pages
-            PagesMethods.new
-          end
-        end
-      end
-    end
-
     class PagesMethods
       include RequestClient
 
+      # Retrieves a Page object using the ID specified.
+      # https://developers.notion.com/reference/retrieve-a-page
       # @param [String] id page_id
       # @return [Notion::Page]
       def retrieve(id)
@@ -20,6 +12,9 @@ module Notion
         Page.new(response.body)
       end
 
+      # Creates a new page in the specified database or as a child of
+      # an existing page.
+      # https://developers.notion.com/reference/post-page
       # @param [Hash] body
       # @return [Notion::Page]
       def create(body)
@@ -27,6 +22,8 @@ module Notion
         Page.new(response.body)
       end
 
+      # Updates page property values for the specified page.
+      # https://developers.notion.com/reference/patch-page
       # @param [String] id page_id
       # @param [Hash] body
       # @return [Notion::Page]

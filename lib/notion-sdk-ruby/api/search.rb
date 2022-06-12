@@ -1,16 +1,11 @@
 module Notion
   module Api
-    module Search
-      def self.included(base)
-        base.class_eval do
-          include SearchMethods
-        end
-      end
-    end
-
     module SearchMethods
       include RequestClient
 
+      # Searches all original pages, databases, and child pages/databases
+      # that are shared with the integration.
+      # https://developers.notion.com/reference/post-search
       # @param [Hash] body
       # @return [Array]
       def search(body)
