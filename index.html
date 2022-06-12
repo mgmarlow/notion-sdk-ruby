@@ -63,60 +63,6 @@
 <p><a href="https://github.com/mgmarlow/notion-sdk-ruby/actions/workflows/ci.yml"><img src="https://github.com/mgmarlow/notion-sdk-ruby/actions/workflows/ci.yml/badge.svg"></a> <a href="https://badge.fury.io/rb/notion-sdk-ruby"><img src="https://badge.fury.io/rb/notion-sdk-ruby.svg"></a></p>
 
 <p>Unofficial Ruby client for the <a href="https://developers.notion.com/">Notion APIs</a>.</p>
-<ul><li>
-<p><a href="#notion-ruby-sdk">Notion Ruby SDK</a></p>
-</li><li>
-<p><a href="#installation">Installation</a></p>
-</li><li>
-<p><a href="#usage">Usage</a></p>
-</li><li>
-<p><a href="#api-reference">API reference</a></p>
-<ul><li>
-<p><a href="#databases">Databases</a></p>
-</li><li>
-<p><a href="#databasesretrieve">databases#retrieve</a></p>
-</li><li>
-<p><a href="#databasesquery">databases#query</a></p>
-</li><li>
-<p><a href="#databasescreate">databases#create</a></p>
-</li><li>
-<p><a href="#databasesupdate">databases#update</a></p>
-</li><li>
-<p><a href="#pages">Pages</a></p>
-</li><li>
-<p><a href="#pagesretrieve">pages#retrieve</a></p>
-</li><li>
-<p><a href="#pagescreate">pages#create</a></p>
-</li><li>
-<p><a href="#pagesupdate">pages#update</a></p>
-</li><li>
-<p><a href="#blocks">Blocks</a></p>
-</li><li>
-<p><a href="#blocksretrieve">blocks#retrieve</a></p>
-</li><li>
-<p><a href="#blocksupdate">blocks#update</a></p>
-</li><li>
-<p><a href="#blockschildrenlist">blocks#children#list</a></p>
-</li><li>
-<p><a href="#blockschildrenappend">blocks#children#append</a></p>
-</li><li>
-<p><a href="#users">Users</a></p>
-</li><li>
-<p><a href="#usersretrieve">users#retrieve</a></p>
-</li><li>
-<p><a href="#userslist">users#list</a></p>
-</li><li>
-<p><a href="#search">Search</a></p>
-</li><li>
-<p><a href="#search-1">#search</a></p>
-</li></ul>
-</li><li>
-<p><a href="#development">Development</a></p>
-</li><li>
-<p><a href="#contributing">Contributing</a></p>
-</li><li>
-<p><a href="#license">License</a></p>
-</li></ul>
 
 <h2 id="label-Installation">Installation</h2>
 
@@ -130,252 +76,17 @@
 <pre class="code ruby"><code class="ruby">$ bundle install
 </code></pre>
 
+<h2 id="label-Documentation">Documentation</h2>
+<ul><li>
+<p><a href="https://mgmarlow.github.io/notion-sdk-ruby/Notion/Client.html">API documentation</a></p>
+</li></ul>
+
 <h2 id="label-Usage">Usage</h2>
 
 <p>Initialize <code>Notion::Client</code> with your app&#39;s <a href="https://developers.notion.com/docs/getting-started#create-a-new-integration">integration secret</a>.</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>notion-sdk-ruby</span><span class='tstring_end'>&quot;</span></span>
 <span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Notion.html" title="Notion (module)">Notion</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Notion/Client.html" title="Notion::Client (class)">Client</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Notion/Client.html#initialize-instance_method" title="Notion::Client#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>token:</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>NOTION_API_SECRET</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
-</code></pre>
-
-<h2 id="label-API+reference">API reference</h2>
-
-<h3 id="label-Databases">Databases</h3>
-
-<h4 id="label-databases-23retrieve">databases#retrieve</h4>
-
-<p><a href="https://developers.notion.com/reference/get-database">API reference</a></p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_databases'>databases</span><span class='period'>.</span><span class='id identifier rubyid_retrieve'>retrieve</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>668d797c-76fa-4934-9b05-ad288df2d136</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-</code></pre>
-
-<h4 id="label-databases-23query">databases#query</h4>
-
-<p><a href="https://developers.notion.com/reference/post-database-query">API reference</a></p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_databases'>databases</span><span class='period'>.</span><span class='id identifier rubyid_query'>query</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>668d797c-76fa-4934-9b05-ad288df2d136</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='lbrace'>{</span>
-  <span class='label'>filter:</span> <span class='lbrace'>{</span>
-    <span class='label'>or:</span> <span class='lbracket'>[</span>
-      <span class='lbrace'>{</span>
-        <span class='label'>property:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>In stock</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-        <span class='label'>checkbox:</span> <span class='lbrace'>{</span>
-          <span class='label'>equals:</span> <span class='kw'>true</span>
-        <span class='rbrace'>}</span>
-      <span class='rbrace'>}</span><span class='comma'>,</span>
-      <span class='lbrace'>{</span>
-        <span class='label'>property:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cost of next trip</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-        <span class='label'>number:</span> <span class='lbrace'>{</span>
-          <span class='label'>greater_than_or_equal_to:</span> <span class='int'>2</span>
-        <span class='rbrace'>}</span>
-      <span class='rbrace'>}</span>
-    <span class='rbracket'>]</span>
-  <span class='rbrace'>}</span><span class='comma'>,</span>
-  <span class='label'>sorts:</span> <span class='lbracket'>[</span>
-    <span class='lbrace'>{</span>
-      <span class='label'>property:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Last ordered</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-      <span class='label'>direction:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ascending</span><span class='tstring_end'>&quot;</span></span>
-    <span class='rbrace'>}</span>
-  <span class='rbracket'>]</span>
-<span class='rbrace'>}</span><span class='rparen'>)</span>
-</code></pre>
-
-<h4 id="label-databases-23create">databases#create</h4>
-
-<p><a href="https://developers.notion.com/reference/create-a-database">API reference</a></p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_databases'>databases</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='lbrace'>{</span>
-  <span class='label'>parent:</span> <span class='lbrace'>{</span>
-    <span class='label'>type:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>page_id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='label'>page_id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>98ad959b-2b6a-4774-80ee-00246fb0ea9b</span><span class='tstring_end'>&quot;</span></span>
-  <span class='rbrace'>}</span><span class='comma'>,</span>
-  <span class='label'>title:</span> <span class='lbracket'>[</span>
-    <span class='lbrace'>{</span>
-        <span class='label'>type:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-        <span class='label'>text:</span> <span class='lbrace'>{</span>
-            <span class='label'>content:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Grocery List</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-            <span class='label'>link:</span> <span class='id identifier rubyid_null'>null</span>
-        <span class='rbrace'>}</span>
-    <span class='rbrace'>}</span>
-  <span class='rbracket'>]</span><span class='comma'>,</span>
-  <span class='label'>properties:</span> <span class='lbrace'>{</span>
-    <span class='label'>Name:</span> <span class='lbrace'>{</span>
-      <span class='label'>title:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-    <span class='rbrace'>}</span>
-  <span class='rbrace'>}</span>
-<span class='rbrace'>}</span><span class='rparen'>)</span>
-</code></pre>
-
-<h4 id="label-databases-23update">databases#update</h4>
-
-<p><a href="https://developers.notion.com/reference/update-a-database">API reference</a></p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_databases'>databases</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>668d797c-76fa-4934-9b05-ad288df2d136</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='lbrace'>{</span>
-  <span class='label'>title:</span> <span class='lbracket'>[</span>
-    <span class='lbrace'>{</span>
-        <span class='label'>type:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-        <span class='label'>text:</span> <span class='lbrace'>{</span>
-            <span class='label'>content:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Grocery List</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-            <span class='label'>link:</span> <span class='id identifier rubyid_null'>null</span>
-        <span class='rbrace'>}</span>
-    <span class='rbrace'>}</span>
-  <span class='rbracket'>]</span><span class='comma'>,</span>
-  <span class='label'>properties:</span> <span class='lbrace'>{</span>
-    <span class='label'>Name:</span> <span class='lbrace'>{</span>
-      <span class='label'>title:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-    <span class='rbrace'>}</span>
-  <span class='rbrace'>}</span>
-<span class='rbrace'>}</span><span class='rparen'>)</span>
-</code></pre>
-
-<h3 id="label-Pages">Pages</h3>
-
-<h4 id="label-pages-23retrieve">pages#retrieve</h4>
-
-<p><a href="https://developers.notion.com/reference/get-page">API reference</a></p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_pages'>pages</span><span class='period'>.</span><span class='id identifier rubyid_retrieve'>retrieve</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>b55c9c91-384d-452b-81db-d1ef79372b75</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-</code></pre>
-
-<h4 id="label-pages-23create">pages#create</h4>
-
-<p><a href="https://developers.notion.com/reference/post-page">API reference</a></p>
-
-<pre class="code ruby"><code class="ruby">client.pages.create({
-  parent: { database_id: &quot;48f8fee9cd794180bc2fec0398253067&quot; },
-  properties: {
-    Name: {
-      title: [
-        {
-          text: {
-            content: &quot;Tuscan Kale&quot;
-          }
-        }
-      ]
-    },
-    Description: {
-      rich_text: [
-        {
-          text: {
-            content: &quot;A dark green leafy vegetable&quot;
-          }
-        }
-      ]
-    },
-    Food group: {
-      select: {
-        name: &quot;Vegetable&quot;
-      }
-    },
-    Price: { number: 2.5 }
-  },
-  children: []
-})
-</code></pre>
-
-<h4 id="label-pages-23update">pages#update</h4>
-
-<p><a href="https://developers.notion.com/reference/patch-page">API reference</a></p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_pages'>pages</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>b55c9c91-384d-452b-81db-d1ef79372b75</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='lbrace'>{</span>
-  <span class='label'>properties:</span> <span class='lbrace'>{</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>In stock</span><span class='label_end'>&quot;:</span> <span class='lbrace'>{</span> <span class='label'>checkbox:</span> <span class='kw'>true</span> <span class='rbrace'>}</span>
-  <span class='rbrace'>}</span>
-<span class='rbrace'>}</span><span class='rparen'>)</span>
-</code></pre>
-
-<h3 id="label-Blocks">Blocks</h3>
-
-<h4 id="label-blocks-23retrieve">blocks#retrieve</h4>
-
-<p><a href="https://developers.notion.com/reference/retrieve-a-block">API reference</a></p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_blocks'>blocks</span><span class='period'>.</span><span class='id identifier rubyid_retrieve'>retrieve</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>b55c9c91-384d-452b-81db-d1ef79372b75</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-</code></pre>
-
-<h4 id="label-blocks-23update">blocks#update</h4>
-
-<p><a href="https://developers.notion.com/reference/update-a-block">API reference</a></p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_blocks'>blocks</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>b55c9c91-384d-452b-81db-d1ef79372b75</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='lbrace'>{</span>
-  <span class='label'>to_do:</span> <span class='lbrace'>{</span>
-    <span class='label'>text:</span> <span class='lbracket'>[</span><span class='lbrace'>{</span> 
-      <span class='label'>text:</span> <span class='lbrace'>{</span> <span class='label'>content:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Lacinato kale</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span> 
-    <span class='rbrace'>}</span><span class='rbracket'>]</span><span class='comma'>,</span>
-    <span class='label'>checked:</span> <span class='kw'>false</span>
-  <span class='rbrace'>}</span>
-<span class='rbrace'>}</span><span class='rparen'>)</span>
-</code></pre>
-
-<h4 id="label-blocks-23children-23list">blocks#children#list</h4>
-
-<p><a href="https://developers.notion.com/reference/get-block-children">API reference</a></p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_blocks'>blocks</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>b55c9c91-384d-452b-81db-d1ef79372b75</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='lbrace'>{</span>
-  <span class='label'>page_size:</span> <span class='int'>100</span>
-<span class='rbrace'>}</span><span class='rparen'>)</span>
-</code></pre>
-
-<h4 id="label-blocks-23children-23append">blocks#children#append</h4>
-
-<p><a href="https://developers.notion.com/reference/patch-block-children">API reference</a></p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_blocks'>blocks</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span><span class='period'>.</span><span class='id identifier rubyid_append'>append</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>b54c9c91-384d-452b-81db-d1ef79372b75</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='lbrace'>{</span>
-  <span class='label'>children:</span> <span class='lbracket'>[</span>
-    <span class='lbrace'>{</span>
-      <span class='label'>object:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>block</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-      <span class='label'>type:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>heading_1</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-      <span class='label'>heading_1:</span> <span class='lbrace'>{</span>
-        <span class='label'>text:</span> <span class='lbracket'>[</span><span class='lbrace'>{</span> <span class='label'>type:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>text:</span> <span class='lbrace'>{</span> <span class='label'>content:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Lacinato kale</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span> <span class='rbrace'>}</span><span class='rbracket'>]</span>
-      <span class='rbrace'>}</span>
-    <span class='rbrace'>}</span><span class='comma'>,</span>
-    <span class='lbrace'>{</span>
-      <span class='label'>object:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>block</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-      <span class='label'>type:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>paragraph</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-      <span class='label'>paragraph:</span> <span class='lbrace'>{</span>
-        <span class='label'>text:</span> <span class='lbracket'>[</span>
-          <span class='lbrace'>{</span>
-            <span class='label'>type:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-            <span class='label'>text:</span> <span class='lbrace'>{</span>
-              <span class='label'>content:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Lacinato kale is a variety of kale with a long tradition in Italian cuisine, especially that of Tuscany. It is also known as Tuscan kale, Italian kale, dinosaur kale, kale, flat back kale, palm tree kale, or black Tuscan palm.</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-              <span class='label'>link:</span> <span class='lbrace'>{</span> <span class='label'>url:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://en.wikipedia.org/wiki/Lacinato_kale</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
-            <span class='rbrace'>}</span>
-          <span class='rbrace'>}</span>
-        <span class='rbracket'>]</span>
-      <span class='rbrace'>}</span>
-    <span class='rbrace'>}</span>
-  <span class='rbracket'>]</span>
-<span class='rbrace'>}</span><span class='rparen'>)</span>
-</code></pre>
-
-<h3 id="label-Users">Users</h3>
-
-<h4 id="label-users-23retrieve">users#retrieve</h4>
-
-<p><a href="https://developers.notion.com/reference/get-user">API reference</a></p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_users'>users</span><span class='period'>.</span><span class='id identifier rubyid_retrieve'>retrieve</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>d40e767c-d7af-4b18-a86d-55c61f1e39a4</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-</code></pre>
-
-<h4 id="label-users-23list">users#list</h4>
-
-<p><a href="https://developers.notion.com/reference/get-users">API reference</a></p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_users'>users</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span>
-</code></pre>
-
-<h3 id="label-Search">Search</h3>
-
-<p><a href="https://developers.notion.com/reference/post-search">API reference</a></p>
-
-<h4 id="label-23search">#search</h4>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_search'>search</span><span class='lparen'>(</span><span class='lbrace'>{</span>
-  <span class='label'>query:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>External tasks</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-  <span class='label'>sort:</span> <span class='lbrace'>{</span>
-    <span class='label'>direction:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ascending</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='label'>timestamp:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>last_edited_time</span><span class='tstring_end'>&quot;</span></span>
-  <span class='rbrace'>}</span>
-<span class='rbrace'>}</span><span class='rparen'>)</span>
 </code></pre>
 
 <h2 id="label-Development">Development</h2>
@@ -401,7 +112,7 @@ EOF
 </div></div>
 
       <div id="footer">
-  Generated on Sun Jun 12 16:24:04 2022 by
+  Generated on Sun Jun 12 16:31:03 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.7.2).
 </div>
