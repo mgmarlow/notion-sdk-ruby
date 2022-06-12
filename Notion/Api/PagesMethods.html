@@ -136,7 +136,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new page in the specified database or as a child of an existing page.</p>
+</div></span>
   
 </li>
 
@@ -158,7 +160,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Retrieves a Page object using the ID specified.</p>
+</div></span>
   
 </li>
 
@@ -180,7 +184,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Updates page property values for the specified page.</p>
+</div></span>
   
 </li>
 
@@ -195,11 +201,6 @@
   
   
   
-  
-  
-  <h3 class="inherited">Methods included from <span class='object_link'><a href="../RequestClient.html" title="Notion::RequestClient (module)">RequestClient</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../RequestClient.html#delete-instance_method" title="Notion::RequestClient#delete (method)">#delete</a></span>, <span class='object_link'><a href="../RequestClient.html#get-instance_method" title="Notion::RequestClient#get (method)">#get</a></span>, <span class='object_link'><a href="../RequestClient.html#patch-instance_method" title="Notion::RequestClient#patch (method)">#patch</a></span>, <span class='object_link'><a href="../RequestClient.html#post-instance_method" title="Notion::RequestClient#post (method)">#post</a></span></p>
-
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
@@ -217,6 +218,8 @@
 </h3><div class="docstring">
   <div class="discussion">
     
+<p>Creates a new page in the specified database or as a child of an existing page. <a href="https://developers.notion.com/reference/post-page">developers.notion.com/reference/post-page</a></p>
+
 
   </div>
 </div>
@@ -257,13 +260,13 @@
       <pre class="lines">
 
 
-25
-26
-27
-28</pre>
+20
+21
+22
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/notion-sdk-ruby/api/pages.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/notion-sdk-ruby/api/pages.rb', line 20</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/v1/pages</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span><span class='rparen'>)</span>
@@ -286,6 +289,8 @@
 </h3><div class="docstring">
   <div class="discussion">
     
+<p>Retrieves a Page object using the ID specified. <a href="https://developers.notion.com/reference/retrieve-a-page">developers.notion.com/reference/retrieve-a-page</a></p>
+
 
   </div>
 </div>
@@ -331,13 +336,13 @@
       <pre class="lines">
 
 
-18
-19
-20
-21</pre>
+10
+11
+12
+13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/notion-sdk-ruby/api/pages.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/notion-sdk-ruby/api/pages.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_retrieve'>retrieve</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/v1/pages/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -360,6 +365,8 @@
 </h3><div class="docstring">
   <div class="discussion">
     
+<p>Updates page property values for the specified page. <a href="https://developers.notion.com/reference/patch-page">developers.notion.com/reference/patch-page</a></p>
+
 
   </div>
 </div>
@@ -416,13 +423,13 @@
       <pre class="lines">
 
 
-33
-34
-35
-36</pre>
+30
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/notion-sdk-ruby/api/pages.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/notion-sdk-ruby/api/pages.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_patch'>patch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/v1/pages/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span><span class='rparen'>)</span>
@@ -438,7 +445,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jun  7 03:42:04 2022 by
+  Generated on Sun Jun 12 16:24:04 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.7.2).
 </div>

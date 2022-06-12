@@ -79,6 +79,11 @@
   
 
   
+  <dl>
+    <dt>Included in:</dt>
+    <dd><span class='object_link'><a href="../Client.html" title="Notion::Client (class)">Client</a></span></dd>
+  </dl>
+  
 
   
   <dl>
@@ -120,7 +125,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Searches all original pages, databases, and child pages/databases that are shared with the integration.</p>
+</div></span>
   
 </li>
 
@@ -135,11 +142,6 @@
   
   
   
-  
-  
-  <h3 class="inherited">Methods included from <span class='object_link'><a href="../RequestClient.html" title="Notion::RequestClient (module)">RequestClient</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../RequestClient.html#delete-instance_method" title="Notion::RequestClient#delete (method)">#delete</a></span>, <span class='object_link'><a href="../RequestClient.html#get-instance_method" title="Notion::RequestClient#get (method)">#get</a></span>, <span class='object_link'><a href="../RequestClient.html#patch-instance_method" title="Notion::RequestClient#patch (method)">#patch</a></span>, <span class='object_link'><a href="../RequestClient.html#post-instance_method" title="Notion::RequestClient#post (method)">#post</a></span></p>
-
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
@@ -157,6 +159,8 @@
 </h3><div class="docstring">
   <div class="discussion">
     
+<p>Searches all original pages, databases, and child pages/databases that are shared with the integration. <a href="https://developers.notion.com/reference/post-search">developers.notion.com/reference/post-search</a></p>
+
 
   </div>
 </div>
@@ -197,13 +201,13 @@
       <pre class="lines">
 
 
-16
-17
-18
-19</pre>
+11
+12
+13
+14</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/notion-sdk-ruby/api/search.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/notion-sdk-ruby/api/search.rb', line 11</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_search'>search</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/v1/search</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span><span class='rparen'>)</span>
@@ -219,7 +223,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jun  7 03:42:04 2022 by
+  Generated on Sun Jun 12 16:24:04 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.7.2).
 </div>

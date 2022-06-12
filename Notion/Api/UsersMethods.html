@@ -136,7 +136,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a paginated list of Users for the workspace.</p>
+</div></span>
   
 </li>
 
@@ -158,7 +160,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Retrieves a User using the ID specified.</p>
+</div></span>
   
 </li>
 
@@ -173,11 +177,6 @@
   
   
   
-  
-  
-  <h3 class="inherited">Methods included from <span class='object_link'><a href="../RequestClient.html" title="Notion::RequestClient (module)">RequestClient</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../RequestClient.html#delete-instance_method" title="Notion::RequestClient#delete (method)">#delete</a></span>, <span class='object_link'><a href="../RequestClient.html#get-instance_method" title="Notion::RequestClient#get (method)">#get</a></span>, <span class='object_link'><a href="../RequestClient.html#patch-instance_method" title="Notion::RequestClient#patch (method)">#patch</a></span>, <span class='object_link'><a href="../RequestClient.html#post-instance_method" title="Notion::RequestClient#post (method)">#post</a></span></p>
-
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
@@ -195,6 +194,8 @@
 </h3><div class="docstring">
   <div class="discussion">
     
+<p>Returns a paginated list of Users for the workspace. <a href="https://developers.notion.com/reference/get-users">developers.notion.com/reference/get-users</a></p>
+
 
   </div>
 </div>
@@ -220,13 +221,13 @@
       <pre class="lines">
 
 
-17
-18
-19
-20</pre>
+9
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/notion-sdk-ruby/api/users.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'lib/notion-sdk-ruby/api/users.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/v1/users</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -249,6 +250,8 @@
 </h3><div class="docstring">
   <div class="discussion">
     
+<p>Retrieves a User using the ID specified. <a href="https://developers.notion.com/reference/get-user">developers.notion.com/reference/get-user</a></p>
+
 
   </div>
 </div>
@@ -294,13 +297,13 @@
       <pre class="lines">
 
 
-24
-25
-26
-27</pre>
+18
+19
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/notion-sdk-ruby/api/users.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/notion-sdk-ruby/api/users.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_retrieve'>retrieve</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/v1/users/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -316,7 +319,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jun  7 03:42:04 2022 by
+  Generated on Sun Jun 12 16:24:04 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-2.7.2).
 </div>
