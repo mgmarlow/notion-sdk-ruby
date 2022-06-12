@@ -18,7 +18,7 @@ RSpec.describe Notion::RequestClient do
       before do
         stub_request(:get, "https://example.com")
           .to_return(body: notion_error.to_json, status: 400, headers: {
-            'Content-Type': "application/json"
+            "Content-Type": "application/json"
           })
       end
 
@@ -44,7 +44,7 @@ RSpec.describe Notion::RequestClient do
       before do
         stub_request(:get, "https://example.com")
           .to_return(body: notion_error, status: status, headers: {
-            'Content-Type': "application/json"
+            "Content-Type": "application/json"
           })
       end
 
@@ -69,7 +69,7 @@ RSpec.describe Notion::RequestClient do
       before do
         stub_request(:get, "https://example.com")
           .to_return(body: notion_error, status: 400, headers: {
-            'Content-Type': "application/json"
+            "Content-Type": "application/json"
           })
       end
 
