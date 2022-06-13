@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    notion-sdk-ruby (0.6.0)
+    notion-sdk-ruby (0.6.1)
       faraday (~> 1.8)
       faraday_middleware (~> 1.1)
 
