@@ -22,6 +22,7 @@ $ bundle install
 ## Documentation
 
 - [API documentation](https://mgmarlow.github.io/notion-sdk-ruby/Notion/Client.html)
+- [Examples](./examples/)
 
 ## Usage
 

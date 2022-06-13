@@ -2,22 +2,24 @@ require "dotenv/load"
 require "notion-sdk-ruby"
 
 class ExhaustiveSearch
-  attr_reader :data
-
   def initialize(query)
     @query = query
     @has_more = true
     @next_cursor = nil
+    @page = 1
   end
 
   def search
     data = []
 
     until done_searching?
+      puts "Searching page #{@page} for 'grocery'"
       result = notion_client.search(search_params)
       data << result.data
       @has_more = result.has_more
       @next_cursor = result.next_cursor
+      @page += 1
+      sleep 1
     end
 
     data.flatten
