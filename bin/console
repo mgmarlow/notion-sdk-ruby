@@ -2,10 +2,10 @@
 
 require "bundler/setup"
 require "pry"
-require 'dotenv/load'
+require "dotenv/load"
 
 require "notion-sdk-ruby"
 
-$client = Notion::Client.new(token: ENV["API_SECRET"])
+$client = Notion::Client.new(token: ENV["NOTION_API_KEY"])
 
 Pry.start
