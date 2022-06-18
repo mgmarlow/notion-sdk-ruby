@@ -31,6 +31,8 @@ class ExhaustiveSearch
     !@has_more
   end
 
+  # Use #compact because the Notion API does not like null
+  # values in request bodies.
   def search_params
     @query
       .merge({start_cursor: @next_cursor})
