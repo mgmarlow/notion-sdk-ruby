@@ -5,7 +5,7 @@ module Notion
 
       # Returns a paginated list of Users for the workspace.
       # https://developers.notion.com/reference/get-users
-      # @return [Array<Notion::User>]
+      # @return [Notion::List<Notion::User>]
       def list
         response = get("/v1/users")
         List.new(response.body)

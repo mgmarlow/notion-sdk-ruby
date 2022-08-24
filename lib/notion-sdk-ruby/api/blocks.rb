@@ -36,7 +36,7 @@ module Notion
       # https://developers.notion.com/reference/get-block-children
       # @param [String] id block_id
       # @param [Hash] query
-      # @return [Array<Notion::Block>]
+      # @return [Notion::List<Notion::Block>]
       def list(id, query = {})
         response = get("/v1/blocks/#{id}/children", query)
         List.new(response.body)
@@ -46,7 +46,7 @@ module Notion
       # https://developers.notion.com/reference/patch-block-children
       # @param [String] id block_id
       # @param [Hash] body
-      # @return [Array<Notion::Block>]
+      # @return [Notion::List<Notion::Block>]
       def append(id, body)
         response = patch("/v1/blocks/#{id}/children", body.to_json)
         List.new(response.body)
