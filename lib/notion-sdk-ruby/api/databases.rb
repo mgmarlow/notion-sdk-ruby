@@ -17,7 +17,7 @@ module Notion
       # https://developers.notion.com/reference/post-database-query
       # @param [String] id database_id
       # @param [Hash] body
-      # @return [Notion::List<Notion::Database>]
+      # @return [Notion::List<Notion::Page>]
       def query(id, body)
         response = post("/v1/databases/#{id}/query", body.to_json)
         List.new(response.body)
