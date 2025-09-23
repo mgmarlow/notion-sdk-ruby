@@ -1,5 +1,4 @@
-# Sourced from notion-sdk-js:
-# https://github.com/makenotion/notion-sdk-js/blob/main/src/errors.ts
+# https://developers.notion.com/reference/status-codes
 module Notion
   API_ERROR_CODE = {
     unauthorized: "unauthorized",

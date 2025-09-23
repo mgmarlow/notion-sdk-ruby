@@ -1,44 +1,77 @@
 module Notion
-  module RequestClient
+  class RequestClient
+    BASE_URL = "https://api.notion.com"
+
+    def initialize(token:, version:)
+      @token = token
+      @notion_version = version
+    end
+
+    def get(path, params = {})
+      handle_request(:get, path, params)
+    end
+
+    def post(path, body = {})
+      handle_request(:post, path, body)
+    end
+
+    def patch(path, body = {})
+      handle_request(:patch, path, body)
+    end
+
+    def delete(path, body = {})
+      handle_request(:delete, path, body)
+    end
+
     private
 
-    def get(*args)
-      handle_request(:get, *args)
-    end
+    def handle_request(method, path, data = {})
+      uri = URI.join(BASE_URL, path)
 
-    def post(*args)
-      handle_request(:post, *args)
-    end
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
 
-    def patch(*args)
-      handle_request(:patch, *args)
-    end
+      request = build_request(method, uri, data)
 
-    def delete(*args)
-      handle_request(:delete, *args)
-    end
+      response = http.request(request)
 
-    def handle_request(method, *args)
-      faraday_client.public_send(method, *args)
-    rescue Faraday::ClientError => error
-      error_details = JSON.parse(error.response[:body])
-      raise ErrorFactory.create(error_details)
+      handle_response(response)
     rescue JSON::ParserError => error
       raise NotionError.new(error.message)
     end
 
-    def faraday_client
-      @faraday_client ||= Faraday.new(
-        url: "https://api.notion.com",
-        headers: {
-          "Content-Type" => "application/json",
-          "Notion-Version" => Notion.config.notion_version,
-          "Authorization" => "Bearer #{Notion.config.api_token}"
-        }
-      ) do |f|
-        f.request :json
-        f.response :json
-        f.use Faraday::Response::RaiseError
+    def build_request(method, uri, data)
+      case method
+      when :get
+        uri.query = URI.encode_www_form(data) unless data.empty?
+        request = Net::HTTP::Get.new(uri)
+      when :post
+        request = Net::HTTP::Post.new(uri)
+        request.body = data.to_json unless data.empty?
+      when :patch
+        request = Net::HTTP::Patch.new(uri)
+        request.body = data.to_json unless data.empty?
+      when :delete
+        request = Net::HTTP::Delete.new(uri)
+        request.body = data.to_json unless data.empty?
+      end
+
+      request['Content-Type'] = 'application/json'
+      request['Notion-Version'] = @notion_version
+      request['Authorization'] = "Bearer #{@token}"
+
+      request
+    end
+
+    def handle_response(response)
+      case response.code.to_i
+      when 200..299
+        JSON.parse(response.body)
+      when 400..499, 500..599
+        error_details = JSON.parse(response.body)
+        raise ErrorFactory.create(error_details)
+      else
+        raise NotionError.new("Unexpected response code: #{response.code}")
       end
     end
   end

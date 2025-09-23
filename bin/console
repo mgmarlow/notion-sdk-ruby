@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "pry"
 require "dotenv/load"
 
 require "notion-sdk-ruby"
 
 $client = Notion::Client.new(token: ENV["NOTION_API_KEY"])
 
-Pry.start
+require "irb"
+IRB.start(__FILE__)
