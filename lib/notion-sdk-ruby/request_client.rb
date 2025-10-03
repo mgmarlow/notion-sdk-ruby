@@ -56,9 +56,9 @@ module Notion
         request.body = data.to_json unless data.empty?
       end
 
-      request['Content-Type'] = 'application/json'
-      request['Notion-Version'] = @notion_version
-      request['Authorization'] = "Bearer #{@token}"
+      request["Content-Type"] = "application/json"
+      request["Notion-Version"] = @notion_version
+      request["Authorization"] = "Bearer #{@token}"
 
       request
     end

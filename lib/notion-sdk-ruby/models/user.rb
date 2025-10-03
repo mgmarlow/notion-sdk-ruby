@@ -1,7 +1,10 @@
 module Notion
-  # The User object represents a user in a Notion workspace.
-  #
-  # https://developers.notion.com/reference/user
-  class User < OpenStruct
+  class User
+    class Partial
+      def initialize(id)
+        @object = "user"
+        @id = id
+      end
+    end
   end
 end

@@ -26,9 +26,8 @@ module Notion
     #   Api::BlocksMethods.new
     # end
 
-    # # @return [Notion::Api::PagesMethods]
-    # def pages
-    #   Api::PagesMethods.new
-    # end
+    def pages
+      Api::Pages.new(request_client:)
+    end
   end
 end

@@ -1,0 +1,3 @@
+module Notion
+  VERSION: String
+end

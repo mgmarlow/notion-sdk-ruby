@@ -1,4 +1,4 @@
 module Notion
-  class Database
+  class Comment
   end
 end

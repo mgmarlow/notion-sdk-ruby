@@ -1,15 +1,13 @@
 module Notion
   module Api
-    class PagesMethods
-      include RequestClient
-
+    class Pages < Base
       # Retrieves a Page object using the ID specified.
       # https://developers.notion.com/reference/retrieve-a-page
       # @param [String] id page_id
       # @return [Notion::Page]
       def retrieve(id)
-        response = get("/v1/pages/#{id}")
-        Page.new(response.body)
+        resp = request_client.get("/v1/pages/#{id}")
+        Page.new(resp)
       end
 
       # Creates a new page in the specified database or as a child of
