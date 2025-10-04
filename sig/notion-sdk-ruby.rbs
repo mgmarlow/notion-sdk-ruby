@@ -1,3 +1,171 @@
 module Notion
   VERSION: String
 end
+
+# Client
+module Notion
+  class Client
+    def pages: () -> untyped
+
+    def request_client: () -> untyped
+
+    def search: (untyped query, ?sort: untyped, ?filter: untyped, ?start_cursor: untyped, ?page_size: untyped) -> untyped
+
+    private
+
+    def initialize: (token: untyped, ?notion_version: untyped) -> void
+  end
+
+  class NotionError < ::StandardError
+    def body: () -> untyped
+
+    def message: () -> untyped
+
+    private
+
+    def initialize: (?untyped message, ?body: untyped) -> void
+  end
+end
+
+# Models
+module Notion
+  class Page
+    def self.from_api: (untyped data) -> untyped
+
+    def self.parse_icon: (untyped data) -> untyped
+
+    def archived: () -> untyped
+
+    def cover: () -> untyped
+
+    def created_by: () -> untyped
+
+    def created_time: () -> untyped
+
+    def icon: () -> untyped
+
+    def id: () -> untyped
+
+    def in_trash: () -> untyped
+
+    def last_edited_by: () -> untyped
+
+    def last_edited_time: () -> untyped
+
+    def object: () -> untyped
+
+    def parent: () -> untyped
+
+    def properties: () -> untyped
+
+    def public_url: () -> untyped
+
+    def url: () -> untyped
+
+    private
+
+    def initialize: (**untyped) -> void
+
+    ATTRIBUTES: ::Array[untyped]
+  end
+
+  class List
+    def self.from_api: (untyped data) -> untyped
+
+    def self.parse_results: (untyped data) -> untyped
+
+    def has_more: () -> untyped
+
+    def next_cursor: () -> untyped
+
+    def object: () -> untyped
+
+    def page_or_data_source: () -> untyped
+
+    def request_id: () -> untyped
+
+    def results: () -> untyped
+
+    def type: () -> untyped
+
+    private
+
+    def initialize: (**untyped) -> void
+
+    ATTRIBUTES: ::Array[untyped]
+  end
+
+  class File
+    def expiry_time: () -> untyped
+
+    def type: () -> untyped
+
+    def url: () -> untyped
+
+    private
+
+    def initialize: (url: untyped, expiry_time: untyped) -> void
+  end
+
+  class FileUpload
+    def id: () -> untyped
+
+    def type: () -> untyped
+
+    private
+
+    def initialize: (id: untyped) -> void
+  end
+
+  class FileExternal
+    def type: () -> untyped
+
+    def url: () -> untyped
+
+    private
+
+    def initialize: (url: untyped) -> void
+  end
+end
+
+# APIs
+module Notion
+  module Api
+    class Base
+      def request_client: () -> untyped
+
+      private
+
+      def initialize: (request_client: untyped) -> void
+    end
+
+    class Pages < ::Notion::Api::Base
+      def retrieve: (untyped id) -> untyped
+    end
+  end
+end
+
+# Internal
+module Notion
+  class RequestClient
+    def delete: (untyped path, ?untyped body) -> untyped
+
+    def get: (untyped path, ?untyped params) -> untyped
+
+    def patch: (untyped path, ?untyped body) -> untyped
+
+    def post: (untyped path, ?untyped body) -> untyped
+
+    private
+
+    def build_request: (untyped method, untyped uri, untyped data) -> untyped
+
+    def handle_request: (untyped method, untyped path, ?untyped data) -> untyped
+
+    def handle_response: (untyped response) -> untyped
+
+    def initialize: (token: untyped, version: untyped) -> void
+
+    BASE_URL: ::String
+  end
+end
