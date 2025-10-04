@@ -140,7 +140,10 @@ module Notion
     end
 
     class Pages < ::Notion::Api::Base
-      def retrieve: (untyped id) -> untyped
+      def retrieve: (String id) -> Page
+      def create: (untyped body) -> Page
+      def update: (untyped body) -> Page
+      def retrieve_property: (page_id: String, property_id: String) -> untyped
     end
   end
 end

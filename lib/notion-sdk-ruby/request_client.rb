@@ -27,6 +27,7 @@ module Notion
 
     def handle_request(method, path, data = {})
       uri = URI.join(BASE_URL, path)
+      raise NotionError.new("Invalid uri: #{uri.host}") unless uri.host
 
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
@@ -54,6 +55,8 @@ module Notion
       when :delete
         request = Net::HTTP::Delete.new(uri)
         request.body = data.to_json unless data.empty?
+      else
+        raise NotionError.new("Invalid method")
       end
 
       request["Content-Type"] = "application/json"

@@ -13,3 +13,5 @@
 .env
 
 Gemfile.lock
+rbs_collection.lock.yaml
+.gem_rbs_collection/
