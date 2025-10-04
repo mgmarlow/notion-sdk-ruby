@@ -1,17 +1,22 @@
 # https://developers.notion.com/reference/status-codes
 module Notion
   API_ERROR_CODE = {
-    unauthorized: "unauthorized",
-    restricted_resource: "restricted_resource",
-    object_not_found: "object_not_found",
-    rate_limited: "rate_limited",
     invalid_json: "invalid_json",
     invalid_request_url: "invalid_request_url",
     invalid_request: "invalid_request",
+    invalid_grant: "invalid_grant",
     validation_error: "validation_error",
+    missing_version: "missing_version",
+    unauthorized: "unauthorized",
+    restricted_resource: "restricted_resource",
+    object_not_found: "object_not_found",
     conflict_error: "conflict_error",
+    rate_limited: "rate_limited",
     internal_server_error: "internal_server_error",
-    service_unavailable: "service_unavailable"
+    bad_gateway: "bad_gateway",
+    service_unavailable: "service_unavailable",
+    database_connection_unavailable: "database_connection_unavailable",
+    gateway_timeout: "gateway_timeout"
   }
 
   class ErrorFactory
