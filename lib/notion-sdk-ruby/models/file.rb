@@ -1,6 +1,6 @@
 module Notion
   class FileObject
-    def self.create(json)
+    def self.from_api(json)
       case json["type"]
       when "file"
         File.new(url: json["file"]["url"], expiry_time: json["file"]["expiry_time"])

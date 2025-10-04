@@ -10,6 +10,7 @@ require_relative "notion-sdk-ruby/models/user"
 require_relative "notion-sdk-ruby/models/emoji"
 require_relative "notion-sdk-ruby/models/file"
 require_relative "notion-sdk-ruby/models/page"
+require_relative "notion-sdk-ruby/models/list"
 require_relative "notion-sdk-ruby/api/base"
 require_relative "notion-sdk-ruby/api/pages"
 

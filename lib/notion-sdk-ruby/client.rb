@@ -29,5 +29,16 @@ module Notion
     def pages
       Api::Pages.new(request_client:)
     end
+
+    def search(query, sort: nil, filter: nil, start_cursor: nil, page_size: 100)
+      resp = request_client.post("/v1/search", {
+        query:,
+        sort:,
+        filter:,
+        start_cursor:,
+        page_size:
+      }.compact)
+      List.from_api(resp)
+    end
   end
 end

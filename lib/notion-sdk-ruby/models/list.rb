@@ -1,48 +1,42 @@
 module Notion
-  # The List object is an intermediate object that helps with pagination.
-  #
-  # https://developers.notion.com/reference/pagination
   class List
-    # An array of endpoint-dependent objects
-    # @return [Array<Notion::User>]
-    # @return [Array<Notion::Database>]
-    # @return [Array<Notion::Page>]
-    # @return [Array<Notion::Block>]
-    attr_reader :data
+    ATTRIBUTES = %i[results next_cursor has_more
+      type page_or_data_source request_id]
 
-    # Used to retrieve the next page of results by passing the value as the
-    # start_cursor parameter to the same endpoint.
-    # @return [nil] if has_more is true.
-    # @return [string] if has_more is false.
-    attr_reader :next_cursor
+    attr_reader(*ATTRIBUTES)
+    attr_reader :object
 
-    # When the response includes the end of the list, false. Otherwise, true.
-    # @return [boolean]
-    attr_reader :has_more
-
-    def initialize(response_body)
-      @data = response_body["results"].map do |d|
-        get_model(d["object"]).new(d)
+    class << self
+      def from_api(data)
+        new(
+          results: parse_results(data),
+          next_cursor: data["next_cursor"],
+          has_more: data["has_more"],
+          type: data["type"],
+          page_or_data_source: data["page_or_data_source"],
+          request_id: data["request_id"]
+        )
       end
 
-      @next_cursor = response_body["next_cursor"]
-      @has_more = response_body["has_more"]
+      private
+
+      def parse_results(data)
+        data["results"].map do |d|
+          case d["object"]
+          when "page"
+            Page.from_api(d)
+          # TODO: data_sources
+          else
+            raise "not yet implemented"
+          end
+        end
+      end
     end
 
-    private
-
-    def get_model(object_name)
-      case object_name
-      when "block"
-        Block
-      when "database"
-        Database
-      when "page"
-        Page
-      when "user"
-        User
-      else
-        raise NotionError.new("unimplemented object type")
+    def initialize(**attributes)
+      @object = "list"
+      ATTRIBUTES.each do |attr|
+        instance_variable_set("@#{attr}", attributes[attr])
       end
     end
   end

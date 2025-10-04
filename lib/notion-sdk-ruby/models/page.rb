@@ -1,32 +1,52 @@
 module Notion
   class Page
     ATTRIBUTES = %i[
-      id object created_time created_by last_edited_time
+      id created_time created_by last_edited_time
       last_edited_by archived in_trash icon cover properties
       parent url public_url
     ].freeze
 
     attr_reader(*ATTRIBUTES)
+    attr_reader :object
 
-    def initialize(data)
-      ATTRIBUTES.each do |attr|
-        # TODO: properties
-        case attr
-        when :created_by, :last_edited_by
-          instance_variable_set("@#{attr}", User::Partial.new(data[attr.to_s]["id"]))
-        when :cover
-          @cover = data["cover"] ? FileObject.create(data["cover"]) : nil
-        when :icon
-          @icon = nil unless data["icon"]
+    class << self
+      def from_api(data)
+        new(
+          id: data["id"],
+          object: data["object"],
+          created_time: data["created_time"],
+          created_by: data["created_by"] ? User::Partial.new(data["created_by"]["id"]) : nil,
+          last_edited_time: data["last_edited_time"],
+          last_edited_by: data["last_edited_by"] ? User::Partial.new(data["last_edited_by"]["id"]) : nil,
+          archived: data["archived"],
+          in_trash: data["in_trash"],
+          icon: parse_icon(data["icon"]),
+          cover: data["cover"] ? FileObject.from_api(data["cover"]) : nil,
+          # TODO: properties
+          properties: data["properties"],
+          parent: data["parent"],
+          url: data["url"],
+          public_url: data["public_url"]
+        )
+      end
 
-          @icon = if data["icon"] == "emoji"
-            Emoji.new(data["icon"]["emoji"])
-          else
-            FileObject.create(data["icon"])
-          end
+      private
+
+      def parse_icon(icon_data)
+        return nil unless icon_data
+
+        if icon_data["type"] == "emoji"
+          Emoji.new(icon_data["emoji"])
         else
-          instance_variable_set("@#{attr}", data[attr.to_s])
+          FileObject.from_api(icon_data)
         end
+      end
+    end
+
+    def initialize(**attributes)
+      @object = "page"
+      ATTRIBUTES.each do |attr|
+        instance_variable_set("@#{attr}", attributes[attr])
       end
     end
   end
